@@ -44,8 +44,7 @@ const Register = () => {
                             <div className="d-flex flex-column ">
                                 <p className="mb-2">Continue with...</p>
                                 <div id="customBtn" className="d-flex align-items-center justify-content-center"> 
-                                </div>
-
+                                </div> 
                                 <div className="mt-3">
                                     <p className="mb-0 text-muted">Already have an account?</p>
                                     <div className="btn btn-primary"><Link to='/login' className="fas fa-chevron-right ms-1">Log in</Link><span className="fas fa-chevron-right ms-1"></span></div>
