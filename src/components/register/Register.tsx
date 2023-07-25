@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Register.css';
 import { useEffect } from 'react';
 
@@ -42,7 +43,7 @@ const Register = () => {
                             <p className="mb-2">Share your thouhts with the world form today.</p>
                             <div className="d-flex flex-column ">
                                 <p className="mb-2">Continue with...</p>
-                                <div className="d-flex align-items-center justify-content-center">
+                                <div id="customBtn" className="d-flex align-items-center justify-content-center">
                                     <a href="#" className="box me-2">
                                         <span className="fab fa-google mb-2"></span>
                                         <p className="mb-0">Google</p>
@@ -52,7 +53,7 @@ const Register = () => {
 
                                 <div className="mt-3">
                                     <p className="mb-0 text-muted">Already have an account?</p>
-                                    <div className="btn btn-primary">Log in<span className="fas fa-chevron-right ms-1"></span></div>
+                                    <div className="btn btn-primary"><Link to='/login' className="fas fa-chevron-right ms-1">Log in</Link><span className="fas fa-chevron-right ms-1"></span></div>
                                 </div>
                             </div>
                         </div>

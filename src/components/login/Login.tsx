@@ -1,7 +1,31 @@
 import { Link } from 'react-router-dom';
 import './Login.css';
+import { useEffect } from 'react';
 
 const Login = () => {
+
+    const handleGoogleComplete = (resp: any) => {
+        const { credential } = resp;
+        console.log("-------Google auth----------- ", credential)
+    }
+    useEffect(() => {
+        window.google.accounts!.id.initialize({
+            client_id: "763864234936-s953ounakf8bemdaqva8hlao2dai2dj5.apps.googleusercontent.com",
+            callback: handleGoogleComplete
+        });
+
+        window.google.accounts.id.renderButton(
+            document.getElementById("customBtn"),
+            {
+                theme: "outline",
+                size: 'large',
+                type: 'icon',
+                width: "40"
+                //text: "signin",
+                //locale: "uk-ua"
+            });
+    },[]);
+
     return (
         <div className="page-container">
         <div className="card">
@@ -17,7 +41,7 @@ const Login = () => {
                             <p className="mb-2">Share your thouhts with the world form today.</p>
                             <div className="d-flex flex-column ">
                                 <p className="mb-2">Continue with...</p>
-                                <div className="d-flex align-items-center justify-content-center">
+                                <div id="customBtn" className="d-flex align-items-center justify-content-center">
                                     <a href="#" className="box me-2">
                                         <span className="fab fa-google mb-2"></span>
                                         <p className="mb-0">Google</p>
