@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Register.css';
 
 const Register = () => {
@@ -25,8 +26,8 @@ const Register = () => {
                                 </div>
 
                                 <div className="mt-3">
-                                    <p className="mb-0 text-muted">Already have an account?</p>
-                                    <div className="btn btn-primary">Log in<span className="fas fa-chevron-right ms-1"></span></div>
+                                    <p className="mb-0">Already have an account?</p>
+                                    <div className="btn btn-primary"><Link to='/login' className="fas fa-chevron-right ms-1">Login</Link><span className="fas fa-chevron-right ms-1"></span></div>
                                 </div>
                             </div>
                         </div>
