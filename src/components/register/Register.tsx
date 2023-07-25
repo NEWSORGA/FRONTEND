@@ -1,7 +1,33 @@
 import { Link } from 'react-router-dom';
 import './Register.css';
+import { useEffect } from 'react';
+
 
 const Register = () => {
+
+    const handleGoogleComplete = (resp: any) => {
+        const { credential } = resp;
+        console.log("-------Google auth----------- ", credential)
+    }
+    useEffect(() => {
+        window.google.accounts!.id.initialize({
+            client_id: "763864234936-s953ounakf8bemdaqva8hlao2dai2dj5.apps.googleusercontent.com",
+            callback: handleGoogleComplete
+        });
+
+        window.google.accounts.id.renderButton(
+            document.getElementById("customBtn"),
+            {
+                theme: "outline",
+                size: 'large',
+                type: 'icon',
+                width: "40"
+                //text: "signin",
+                //locale: "uk-ua"
+            });
+    },[]);
+
+
     return (
         <div className="page-container">
         <div className="card">
@@ -17,7 +43,7 @@ const Register = () => {
                             <p className="mb-2">Share your thouhts with the world form today.</p>
                             <div className="d-flex flex-column ">
                                 <p className="mb-2">Continue with...</p>
-                                <div className="d-flex align-items-center justify-content-center">
+                                <div id="customBtn" className="d-flex align-items-center justify-content-center">
                                     <a href="#" className="box me-2">
                                         <span className="fab fa-google mb-2"></span>
                                         <p className="mb-0">Google</p>
@@ -26,8 +52,8 @@ const Register = () => {
                                 </div>
 
                                 <div className="mt-3">
-                                    <p className="mb-0">Already have an account?</p>
-                                    <div className="btn btn-primary"><Link to='/login' className="fas fa-chevron-right ms-1">Login</Link><span className="fas fa-chevron-right ms-1"></span></div>
+                                    <p className="mb-0 text-muted">Already have an account?</p>
+                                    <div className="btn btn-primary"><Link to='/login' className="fas fa-chevron-right ms-1">Log in</Link><span className="fas fa-chevron-right ms-1"></span></div>
                                 </div>
                             </div>
                         </div>
