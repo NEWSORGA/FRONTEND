@@ -4,10 +4,11 @@
 
 .HeaderWrapper {
     height: 60px;
-    width: 70%;
+    width: 70%; 
     margin: 0 auto;
     background-color: #252525;
     border: 1px solid #dddd;
+    border-radius: 15px;
     box-shadow: rgba(216, 216, 216, 0.24) 0px 3px 8px;
 }
 
@@ -74,6 +75,7 @@ i {
 }
 
 .brand {
+    text-decoration: none;
     font-family: 'Raleway', sans-serif;
     -webkit-text-stroke: 0.4px white;
     font-size: 24px;

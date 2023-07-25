@@ -2,15 +2,16 @@ import { Col, Row } from 'react-bootstrap';
 import './Header.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <>
+        <div style={{marginTop:"5px"}}>
             <div className="HeaderWrapper">
                 <Row>
                     <Col xs="4">
                         <div className="BrandDiv">
-                            <div className="brand">Quixify</div>
+                            <Link to='/' className="brand">Quixify</Link>
                             <div className="brand-subtext">but every do you want</div>
                         </div>
                     </Col>
@@ -34,7 +35,7 @@ const Header = () => {
                     </Col>
                 </Row>
             </div>
-        </>
+        </div>
     );
 }
 export default Header;

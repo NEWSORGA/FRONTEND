@@ -43,12 +43,7 @@ const Register = () => {
                             <p className="mb-2">Share your thouhts with the world form today.</p>
                             <div className="d-flex flex-column ">
                                 <p className="mb-2">Continue with...</p>
-                                <div id="customBtn" className="d-flex align-items-center justify-content-center">
-                                    <a href="#" className="box me-2">
-                                        <span className="fab fa-google mb-2"></span>
-                                        <p className="mb-0">Google</p>
-                                        <i className="bi bi-google fa-xs" style={{fontSize:"20px"}}></i>
-                                    </a>
+                                <div id="customBtn" className="d-flex align-items-center justify-content-center"> 
                                 </div>
 
                                 <div className="mt-3">
