@@ -1,48 +1,99 @@
+/* Header.css */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
 .HeaderWrapper {
-    position: fixed;
-    height: 40px;
-    width: 100%;
-    background-color: #303030;
-    display: flex;
-    align-items: center;
+    height: 60px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #252525;
+    border: 1px solid #dddd;
+    box-shadow: rgba(216, 216, 216, 0.24) 0px 3px 8px;
 }
 
-.LogoWrapper {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    width: 50%;
-}
-
-.LogoWrapper a {
-    color: #213547;
-    font-size: 24px;
-}
-
-.MenuWrapper { 
-    width: 50%; 
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    float: right;
+.row {
     height: 100%;
-    margin: 0px 40px;
-   
 }
-.MenuWrapper a{
-    color: #424adb;
-    text-decoration: none;
+
+.col {
+    height: 100%;
+    padding: 0;
 }
-.MenuWrapper ul{
-    list-style: none;  
+
+.icon-search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.AuthWrapper {
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.SearchHeader {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bi-bell:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.bi-bell {
+    margin-right: 10px;
+}
+
+i {
+    color: rgb(155, 34, 34);
+    font-size: 20px;
+}
+
+.SearchHeader .form-control {
+    background-color: #252525;
+    color: white;
+}
+
+.SearchHeader .form-control::placeholder {
+    color: white;
+}
+
+.BrandDiv {
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.brand {
+    font-family: 'Raleway', sans-serif;
+    -webkit-text-stroke: 0.4px white;
     font-size: 24px;
-    margin: 0;
+    color: rgb(155, 34, 34);
 }
-.MenuWrapper li{
-    margin: 10px;
-    display: inline;
+.bi-arrow-through-heart:hover {
+    cursor: pointer;
+    color: white; 
 }
-.MenuWrapper a:hover {
-    color: #213547;
+.bi-arrow-through-heart{
+    margin-left: 10px;
+    font-size: 22px;
+}
+.brand-subtext {
+    font-family: 'Lugrasimo', cursive;
+    font-size: 8px;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.brand:hover {
     cursor: pointer;
 }

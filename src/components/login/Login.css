@@ -6,8 +6,10 @@
 .card a{
     text-decoration: none;
     color: rgb(155, 34, 34); 
+    
 }
 .card {
+    text-align: center;
     background-color: #252525;
     padding: 0;
     margin: 0 auto;
