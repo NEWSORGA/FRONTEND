@@ -19,10 +19,7 @@
     color: white; 
     margin-right: 15vh;
     text-shadow: rgba(241, 239, 239, 0.80) 0px 3px 8px;
-  }
-  .mainWrapper{
-    height: 300vh;
-  }
+  } 
   .candle{
     margin-left: 15vh; 
     background-image: url('https://i.pinimg.com/originals/93/25/cd/9325cd735d6c16d696b72fe7ef39de10.gif');
@@ -46,4 +43,7 @@
     font-size: 50px;
     text-shadow: rgba(241, 239, 239, 0.80) 0px 3px 8px;
     color: rgb(155, 34, 34);
+}
+.row {
+  --bs-gutter-x: 0rem !important;
 }
