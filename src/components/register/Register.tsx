@@ -1,6 +1,6 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Register.css';
-import {useGoogleLogin} from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 
 
@@ -35,22 +35,22 @@ const Register = () => {
                     <div className="body d-md-flex align-items-center justify-content-between">
                         <div className="box-1 mt-md-0 mt-5">
                             <img src="https://i.pinimg.com/564x/e8/ce/8b/e8ce8b7387c34bb794cde48f9452e665.jpg"
-                                 className="" alt=""/>
+                                className="" alt="" />
                         </div>
                         <div className=" box-2 d-flex flex-column h-100">
                             <div className="mt-5">
                                 <p className="mb-1 h-1">Create Account.</p>
-                                <p className="mb-2">Share your thouhts with the world form today.</p>
+                                <p className="mb-2 mb-3">Share your thouhts with the world form today.</p>
                                 <div className="d-flex flex-column ">
-                                    <p className="mb-2">Continue with...</p>
+                                    <p className="mb-2 mb-3">Continue with...</p>
                                     <div onClick={() => loginByGoogle()}
-                                         className="d-flex align-items-center justify-content-center">
+                                        className="mb-3 d-flex align-items-center justify-content-center cursor-pointer bgDelete">
                                         Sign in with Google 🚀{' '}
                                     </div>
                                     <div className="mt-3">
-                                        <p className="mb-0 text-muted">Already have an account?</p>
-                                        <div className="btn btn-primary"><Link to='/login'
-                                                                               className="fas fa-chevron-right ms-1">Log
+                                        <p className="mb-0 mb-3">Already have an account?</p>
+                                        <div className="mb-3 mg-2 btn-primary cursor-pointer bgDelete"><Link to='/login'
+                                            className="fas fa-chevron-right ms-1">Log
                                             in</Link><span className="fas fa-chevron-right ms-1"></span></div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ const Register = () => {
                                 </p>
                             </div>
                         </div>
-                        <span className="fas fa-times"></span>
+                        <Link to="/" className="fas fa-times"></Link>
                     </div>
                 </div>
             </div>

@@ -4,3 +4,6 @@
     font-size: 24px;
     color: rgb(155, 34, 34);
  }
+ .Footer{
+   z-index: 1000;
+ }

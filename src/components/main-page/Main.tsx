@@ -13,8 +13,8 @@ const MainPage = () => {
                     <Animate.FadeUp>
                         <div className='TextInPic'>we think the same as you</div>
                     </Animate.FadeUp>
-                    <div className="BrandDiv">
-                        <Link to='/' className="brand">Quixify</Link>
+                    <div className="BrandDivMain">
+                        <Link to='/' className="brandMain">Quixify</Link>
                     </div>
                 </div>
                 <Row style={{ height: "25vh", marginTop: "4rem", marginBottom: "4rem" }}>
