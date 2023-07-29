@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import FadeUp from '../common/animate/Animate'
 import './Main.css'
+import Footer from '../common/footer/Footer';
 
 const MainPage = () => {
     return (
@@ -14,6 +15,7 @@ const MainPage = () => {
                         <Link to='/' className="brand">Quixify</Link> 
                     </div>
                 </div>
+                <Footer></Footer>
             </div>
 
         </>
