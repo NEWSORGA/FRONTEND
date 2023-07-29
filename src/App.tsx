@@ -14,7 +14,6 @@ function App() {
         <Route path="/" element={<DefaultLayout />}>
           <Route path='register' element={<Register></Register>} />
           <Route path='login' element={<Login></Login>} />
-          <Route path='about' element={<AboutUs></AboutUs>} />
         </Route>
       </Routes>
     </>
