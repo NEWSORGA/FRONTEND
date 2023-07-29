@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+.blockWrapper {
+    background-color: #202020;
+    width: 70%; 
+    height: 90%;
+    border-radius: 18px;
+    box-shadow: rgba(241, 239, 239, 0.80) 0px 3px 8px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+    margin-left: 2vh;
+}
+
+.blockWrapper i {
+    font-size: 24px;  
+    margin-bottom: 10px; 
+    color: rgb(155, 34, 34);
+}
+
+.blockWrapper a {
+    padding-left: 2vh;
+    padding-right: 2vh;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; 
+    color: white;  
+    text-decoration: none;  
+}
