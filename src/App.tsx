@@ -16,7 +16,7 @@ function App() {
           <Route path='profile' element={<Profile></Profile>} />
         </Route> 
         <Route path="/" element={<AuthLayout></AuthLayout>}>
-          <Route path='/register' element={<Register></Register>} />
+          {/* <Route path='/register' element={<Register></Register>} /> */}
           <Route path='/login' element={<Login></Login>} />
         </Route>
       </Routes>

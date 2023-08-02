@@ -38,6 +38,12 @@
     height: 100vh;
 }
 
+.googleLogin{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+
 .box-1 img {
     border-radius: 10%;
     width: 100%;
