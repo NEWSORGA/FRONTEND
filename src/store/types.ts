@@ -11,7 +11,8 @@ export interface IAuthUser {
 export interface IUser {
     id: string,
     name: string,
-    image: string
+    image: string,
+    email: string
 }
 
 export interface ILoginResult {

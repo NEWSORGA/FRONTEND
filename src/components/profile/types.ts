@@ -20,6 +20,7 @@ export interface ITweetView {
     likesCount:number,
     retweeted:boolean,
     retweetedCount:number,
+    commentsCount:number,
     viewsCount:number,
     createdAt:string,
     createdAtStr:string,
