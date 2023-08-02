@@ -3,8 +3,13 @@ import './Header.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { IAuthUser } from '../../store/types';
+import { APP_ENV } from '../../env';
 
 const Header = () => {
+    const { user, isAuth } = useSelector((store: any) => store.auth as IAuthUser);
+
     return (
         <div style={{marginTop:"5px"}}>
             <div className="HeaderWrapper">
@@ -29,7 +34,7 @@ const Header = () => {
                     <Col xs="3">
                         <div className="AuthWrapper">
                             <div className="AvatarDiv">
-                                <img src="https://i.pinimg.com/564x/ff/2c/73/ff2c73e29739c316d38f8b1000a03afc.jpg" className="rounded-circle" style={{ width: "50px" }} alt="Avatar" />
+                                {isAuth ? <img src={ `${APP_ENV.BASE_URL + "/images/" + user?.image}` } className="rounded-circle" style={{ width: "50px" }} alt="Avatar" /> : <Link to="/login">Login</Link>}
                             </div>
                         </div>
                     </Col>
