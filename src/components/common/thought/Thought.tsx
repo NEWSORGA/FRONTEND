@@ -16,17 +16,24 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
     }, [tweet])
 
     const likeTweet = () => {
-        http.post("/likeTweet/" + tweet?.id).then((res) => {
-            if (res.data == "Liked" && tweet != undefined && likesCount != undefined){
-                setLike(true);
+        if(liked == false && likesCount != undefined){
+            setLike(true);
                 setLikesCount(likesCount+1);
                 console.log("like", likesCount);
+        }
+        else if(likesCount != undefined){
+            setLike(false);
+            setLikesCount(likesCount-1);
+            console.log("unlike", likesCount);
+        }
+
+        http.post("/likeTweet/" + tweet?.id).then((res) => {
+            if (res.data == "Liked" && tweet != undefined && likesCount != undefined){
+                
             }
             else if(res.data == "unLiked" && tweet != undefined && likesCount != undefined){
                 
-                setLike(false);
-                setLikesCount(likesCount-1);
-                console.log("unlike", likesCount);
+                
             }
                 
 
@@ -60,13 +67,13 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
                     
                             <svg className='action' fill="#3E444F" version="1.1" id="Capa_1" viewBox="1.8 2 21 21" >
                                 <g>
-                                    <path fill={liked ? "#9B2222" : "none"} stroke={liked ? "none" : "#3E444F"} xmlns="http://www.w3.org/2000/svg" d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" />
+                                    <path fill={liked ? "#EB4C42" : "none"} stroke={liked ? "none" : "#3E444F"} xmlns="http://www.w3.org/2000/svg" d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" />
                                 </g>
                             </svg>
      
                      
 
-                            <span className='actionCount'>{likesCount}</span>
+                            <span className='actionCount' style={{ color: liked ? "#EB4C42" : "#3E444F"}}>{likesCount}</span>
                         </button>
                     </div>
                     <div className='like actionBlock'>
