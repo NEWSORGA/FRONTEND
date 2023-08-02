@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
+import { ILoginGoogleUser } from './types';
+import { formHttp } from '../../http';
 // import jwt_decode from "jwt-decode";
 
 const Login = () => {
@@ -18,7 +20,14 @@ const Login = () => {
             })
                 .then((res) => {
                     console.log('User Info:', res.data);
-                    // You can access the user information from res.data object
+                    var user:ILoginGoogleUser = {
+                        email: res.data.email,
+                        token: tokenResponse.access_token
+                    }
+    
+                    formHttp.post("/auth/loginGoogle", user).then((reg) => {
+                        console.log(reg.data);
+                    });
                 })
                 .catch((error) => {
                     console.log('Error fetching user information:', error);

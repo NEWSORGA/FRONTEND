@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route index element={<MainPage></MainPage>} />
         <Route path="/" element={<DefaultLayout></DefaultLayout>}>
-          <Route path='profile/:slug' element={<Profile></Profile>} />
+          <Route path='profile' element={<Profile></Profile>} />
         </Route> 
         <Route path="/" element={<AuthLayout></AuthLayout>}>
           <Route path='/register' element={<Register></Register>} />
