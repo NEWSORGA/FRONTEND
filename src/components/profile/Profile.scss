@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+.ProfileWrapper {
+    z-index: 1;
+    min-height: 100vh;
+    width: 100%;
+
+    .ProfileBackground {
+        z-index: 2;
+        min-height: 100vh;
+        width: 40%;
+        padding: 60px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(16, 18, 21, 0.9);
+
+        .loadProfile {
+            z-index: 10;
+        }
+
+        .profileLine {
+            display: flex;
+            align-items: start;
+            flex-direction: row;
+            margin: 20px 0;
+
+            .ProfileAvatar {
+                min-width: 150px;
+                height: 150px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 10px;
+                flex: 150px;
+            }
+
+            .UserDataProfile {
+                margin: 0 20px;
+
+                .NickNameProfile {
+                    a {
+                        font-size: 24px;
+                        font-weight: 200;
+                    }
+
+                }
+
+                .CountryProfile {
+                    a {
+                        font-size: 14px;
+                        color: #dededf;
+                    }
+                }
+
+                .flag {
+                    height: 12px;
+                }
+
+                .StatusProfile {
+                    margin-top: 5px;
+
+                    a {
+                        font-size: 18px;
+                        font-family: 'Dancing Script', cursive;
+                        color: #c5c4c4 !important;
+                    }
+                }
+            }
+        }
+
+        .WritePost {
+            width: 100%;
+            background-color: #1D2025;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            form{
+                width: 100%;
+                .inputBlock {
+                    display: flex;
+                    flex: 90%;
+                    flex-direction: column;
+    
+                    .inputPost {
+                        background-color: transparent;
+                        border: 0;
+                        box-shadow: 0;
+                        outline: 0;
+                        resize: none;
+                        height: fit-content;
+                        overflow: hidden;
+                        width: 100%;
+                    }
+    
+                    .images {
+                        width: 100%;
+                        display: grid;
+                        gap: 15px;
+                        margin-top: 10px;
+    
+                        .img-fluid {
+                            border-radius: 5px;
+                        }
+                    }
+    
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-top: 10px;
+                        width: 100%;
+                        .actions {
+                            .inputBtn {
+                                cursor: pointer;
+                                background-color: transparent;
+                                border: 0;
+                                transition: 0.3s;
+    
+                                &:hover {
+                                    filter: drop-shadow(0px 0px 10px rgba(241, 18, 18, 1));
+                                }
+                            }
+    
+                            button {}
+                        }
+    
+                        .btnProfile {
+                            background-color: rgba(235, 76, 66, 0.9);
+                            flex: 1fr;
+                            display: block;
+                            border-radius: 20px;
+                            color: #fff;
+                            font-size: 14px;
+                            padding: 4px 20px;
+                            border: 0;
+                            
+                        }
+                    }
+                }
+    
+            }
+            
+
+        }
+
+        .AllPostsProfile {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+    }
+
+}

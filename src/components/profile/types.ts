@@ -26,7 +26,22 @@ export interface ITweetView {
     createdAtStr:string,
 }
 
+export interface ITweetCreate {
+    tweetText:string,
+    mediaIds:number[],
+    repostedId:ITweetView|null|undefined
+}
+
 export interface IMedia {
     id:number,
     path:string
+}
+
+export interface IUploadImage {
+    media: File|null;
+}
+//інформація про фото, яке завантажили на сервер
+export interface IUploadImageResult {
+    id: number;
+    path: string;
 }
