@@ -5,38 +5,53 @@
     z-index: 1;
     min-height: 100vh;
     width: 100%;
+   
+
 }
 
 .ProfileBackground {
     z-index: 2;
     min-height: 100vh;
     width: 50%;
-    padding-top: 60px;
-    padding-bottom: 60px;
+   padding: 60px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(16,18,21, 0.9);
 }
 
 .ProfileAvatar {
-    margin: 1rem;
-    width: 160px;
-    height: 160px;
+
+    min-width: 150px;
+    height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 18px;
-    box-shadow: rgba(241, 239, 239, 0.80) 0px 3px 8px;
+    border-radius: 10px;
+    flex: 150px;
 }
 
 .NickNameProfile a {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 200;
 }
 
+.CountryProfile a{
+    font-size: 14px;
+    color: #dededf;
+}
+
+.flag{
+    height: 12px;
+}
+
+.StatusProfile{
+    margin-top: 5px;
+}
+
 .StatusProfile a {
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Dancing Script', cursive;
+    color: #c5c4c4 !important;
 }
 
 textarea {
@@ -50,14 +65,24 @@ textarea {
 }
 .WritePost{
     width: 100%;
+    background-color: #1D2025;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
 }
 .btnProfile{
-    background-color: rgb(155, 34, 34);
+    background-color: rgba(235,76,66, 0.9);
     margin-top: 1rem;
+    flex:1fr;
+    display: block;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 20px;
 }
 
 .AllPostsProfile{
-    margin: 0 10px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -65,4 +90,23 @@ textarea {
 
 .loadProfile{
     z-index: 10;
+}
+
+.inputPost {
+    background-color: transparent;
+    border: 0;
+    box-shadow: 0;
+    outline: 0;
+    flex: auto;
+}
+
+.profileLine{
+    display: flex;
+    align-items: start;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.UserDataProfile{
+    margin: 0 20px;
 }

@@ -1,108 +1,58 @@
-/* Header.css */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
-
-.HeaderWrapper {
-    z-index: 1000;
-    position: fixed; 
-    height: 60px;
-    width: 60%;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 5px; /* Add top position to create some space from the top */
-    background-color: #252525;
-    border: 1px solid #dddd;
-    border-radius: 15px;
-    box-shadow: rgba(216, 216, 216, 0.24) 0px 3px 8px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.row {
-    height: 100%;
+.header {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 3;
 }
-
-.col {
-    height: 100%;
-    padding: 0;
+.header .headerBlock {
+  background-color: rgba(29, 32, 37, 0.95);
+  width: 60%;
+  height: 60px;
+  border-radius: 0 0 20px 20px;
+  border: 1px solid #EB4C42;
+  border-top: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.icon-search-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+.header .headerBlock .BrandDiv {
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 5px;
+  flex: 200px;
 }
-
-.AuthWrapper {
-    height: 100%;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin-right: 5px;
+.header .headerBlock .BrandDiv .brand {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  -webkit-text-stroke: 0.4px white;
+  font-size: 24px;
+  color: rgb(155, 34, 34);
 }
-
-.SearchHeader {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header .headerBlock .BrandDiv .brand-subtext {
+  font-family: "Lugrasimo", cursive;
+  font-size: 8px;
+  color: #fff;
+  margin-top: 15px;
 }
-
-.bi-bell:hover {
-    cursor: pointer;
-    color: white;
+.header .headerBlock .menu a {
+  margin: 0 10px;
 }
-
-.bi-bell {
-    margin-right: 10px;
+.header .headerBlock .profile {
+  flex: 200px;
+  display: flex;
+  justify-content: end;
 }
-
-i {
-    color: rgb(155, 34, 34);
-    font-size: 20px;
-}
-
-.SearchHeader .form-control {
-    background-color: #252525;
-    color: white;
-}
-
-.SearchHeader .form-control::placeholder {
-    color: white;
-}
-
-.BrandDiv {
-    height: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-left: 5px;
-}
-
-.brand {
-    text-decoration: none;
-    font-family: 'Raleway', sans-serif;
-    -webkit-text-stroke: 0.4px white;
-    font-size: 24px;
-    color: rgb(155, 34, 34);
-}
-
-.bi-arrow-through-heart:hover {
-    cursor: pointer;
-    color: white;
-}
-
-.bi-arrow-through-heart {
-    margin-left: 10px;
-    font-size: 22px;
-}
-
-.brand-subtext {
-    font-family: 'Lugrasimo', cursive;
-    font-size: 8px;
-    color: #fff;
-    margin-top: 15px;
-}
-
-.brand:hover {
-    cursor: pointer;
-}
+.header .headerBlock .profile .profileAvatar {
+  border-radius: 50%;
+  height: 40px;
+}/*# sourceMappingURL=Header.css.map */
