@@ -8,42 +8,67 @@ import { useEffect, useState, } from 'react';
 const Thought = ({ tweet }: { tweet: ITweetView }) => {
     const [liked, setLike] = useState<boolean>();
     const [likesCount, setLikesCount] = useState<number>();
-
-
+    const [gridColumns, setGridColumns] = useState<string>();
+    const [gridRows, setGridRows] = useState<string>();
+    const [count, setCount] = useState<number>();
     useEffect(() => {
         setLike(tweet.liked);
         setLikesCount(tweet.likesCount);
+        setGrid();
+
     }, [tweet])
 
-    const likeTweet = () => {
-        if(liked == false && likesCount != undefined){
-            setLike(true);
-                setLikesCount(likesCount+1);
-                console.log("like", likesCount);
+    const setGrid = () => {
+        switch (tweet.medias.length) {
+            case 1:
+                setGridColumns("1fr");
+                setGridRows("1fr");
+                break;
+            case 2:
+                setGridColumns("1fr 1fr");
+                setGridRows("1fr");
+                break;
+            case 3:
+                setGridColumns("1fr 1fr");
+                setGridRows("1fr");
+                break;
+            default:
+                break;
         }
-        else if(likesCount != undefined){
+    }
+
+
+    
+
+    const likeTweet = () => {
+        if (liked == false && likesCount != undefined) {
+            setLike(true);
+            setLikesCount(likesCount + 1);
+            console.log("like", likesCount);
+        }
+        else if (likesCount != undefined) {
             setLike(false);
-            setLikesCount(likesCount-1);
+            setLikesCount(likesCount - 1);
             console.log("unlike", likesCount);
         }
 
         http.post("/likeTweet/" + tweet?.id).then((res) => {
-            if (res.data == "Liked" && tweet != undefined && likesCount != undefined){
-                
+            if (res.data == "Liked" && tweet != undefined && likesCount != undefined) {
+
             }
-            else if(res.data == "unLiked" && tweet != undefined && likesCount != undefined){
-                
-                
+            else if (res.data == "unLiked" && tweet != undefined && likesCount != undefined) {
+
+
             }
-                
+
 
         });
     }
 
     return (
-        
+
         <>
-            
+
             <div className="ThoughtWrapper">
                 <div className="DataUserThought">
                     <Link to={`/profile?id=${tweet?.user.id}`}>
@@ -57,23 +82,48 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
                     </div>
 
                 </div>
-              
+
                 <div className="ThoughtText">
                     {tweet?.tweetText}
+                </div>
+                <div className='images' style={{ gridTemplateColumns: gridColumns, gridTemplateRows: gridRows }}>
+                  
+                    {tweet.medias.map((img) => (
+                        <>
+                            <div className="col position-relative">
+                                <div className="imgUp">
+                                    <div className="imagePreview align-items-center">
+                                        <img
+                                            src={`${APP_ENV.BASE_URL}/images/300_` + img.path}
+                                            className="img-fluid"
+                                            alt="Зображення"
+                                            style={{ width: '100%',  overflow: 'hidden' }}
+                                        />
+
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                        </>
+                    ))}
                 </div>
                 <div className='actions'>
                     <div className='like actionBlock'>
                         <button className='likeBtn actionBtn' onClick={likeTweet}>
-                    
+
                             <svg className='action' fill="#3E444F" version="1.1" id="Capa_1" viewBox="1.8 2 21 21" >
                                 <g>
                                     <path fill={liked ? "#EB4C42" : "none"} stroke={liked ? "none" : "#3E444F"} xmlns="http://www.w3.org/2000/svg" d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" />
                                 </g>
                             </svg>
-     
-                     
 
-                            <span className='actionCount' style={{ color: liked ? "#EB4C42" : "#3E444F"}}>{likesCount}</span>
+
+
+                            <span className='actionCount' style={{ color: liked ? "#EB4C42" : "#3E444F" }}>{likesCount}</span>
                         </button>
                     </div>
                     <div className='like actionBlock'>
@@ -85,7 +135,7 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
                                 <defs>
 
                                 </defs>
-                                <g id="Page-1" stroke="none" strokeWidth="1" fill="none"  fillRule="evenodd" sketch: type="MSPage">
+                                <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" sketch: type="MSPage">
                                     <g id="Icon-Set" sketch: type="MSLayerGroup" transform="translate(-100.000000, -255.000000)" fill="#3E444F">
                                         <path d="M116,281 C114.832,281 113.704,280.864 112.62,280.633 L107.912,283.463 L107.975,278.824 C104.366,276.654 102,273.066 102,269 C102,262.373 108.268,257 116,257 C123.732,257 130,262.373 130,269 C130,275.628 123.732,281 116,281 L116,281 Z M116,255 C107.164,255 100,261.269 100,269 C100,273.419 102.345,277.354 106,279.919 L106,287 L113.009,282.747 C113.979,282.907 114.977,283 116,283 C124.836,283 132,276.732 132,269 C132,261.269 124.836,255 116,255 L116,255 Z" id="comment-1" sketch: type="MSShapeGroup">
 
