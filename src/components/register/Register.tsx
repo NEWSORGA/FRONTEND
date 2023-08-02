@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import './Register.css';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios";
+import { ICreateGoogleUser } from './types';
+import { formHttp } from '../../http';
 
 
 const Register = () => {
@@ -18,7 +20,27 @@ const Register = () => {
             })
                 .then((res) => {
                     console.log('User Info:', res.data);
-                    // You can access the user information from res.data object
+
+                    axios.get('https://api.geoapify.com/v1/ipinfo?apiKey=d74e417fb77f459daa5e229304c08a0e')
+                    .then((response) => {
+                        const country = response.data.country;
+                        console.log('User Country:', country);
+                        var user:ICreateGoogleUser = {
+                            name: res.data.name,
+                            email: res.data.email,
+                            image: res.data.picture,
+                            country: country.name,
+                            countryCode: country.iso_code,
+                            token: tokenResponse.access_token
+                        }
+
+                        formHttp.post("/auth/createGoogle", user).then((reg) => {
+                            console.log(reg.data);
+                        });
+                    })
+                    .catch((error) => {
+                        console.log('Error fetching user country:', error);
+                    });
                 })
                 .catch((error) => {
                     console.log('Error fetching user information:', error);

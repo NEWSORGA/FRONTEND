@@ -2,30 +2,52 @@ import { Col, Form, Row } from 'react-bootstrap';
 import './Profile.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Thought from '../common/thought/Thought';
+import { useEffect, useState, } from 'react';
+import { useSearchParams, } from 'react-router-dom';
+import { ITweetView, IUserView } from './types';
+import { http } from '../../http';
+import { APP_ENV } from '../../env';
+
 
 const Profile = () => {
+    const [user, setUser] = useState<IUserView>();
+    const [posts, setPosts] = useState<ITweetView[]>([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+    useEffect(() => {
+       var id = searchParams.get("id");
+        http.get("auth/"+id).then((res) => {
+            console.log("User: ", res.data);
+            console.log(APP_ENV.BASE_URL + "/images/" + res.data.image);
+            setUser(res.data);
+        });
+        http.get(`Tweets/GetUserTweets?UserId=6&UserPageId=${id}`).then((res) => {
+            console.log("Post: ", res.data);
+    
+            setPosts(res.data);
+        });
+    }, [])
     return (
         <>
             <div className="ProfileWrapper d-flex justify-content-center"
-                style={{ backgroundImage: "url(https://www.everwallpaper.co.uk/cdn/shop/collections/3D_Wallpaper.jpg?v=1660209305)" }}>
+                style={{ backgroundImage: user?.backgroundImage != null ? `url(${APP_ENV.BASE_URL + "/images/" + user?.backgroundImage})` : "url(https://www.everwallpaper.co.uk/cdn/shop/collections/3D_Wallpaper.jpg?v=1660209305)" }}>
                 <div className="ProfileBackground" style={{ backgroundColor: "rgba(25,25,25,.9)" }}>
                     <Row style={{ height: "200px" }}>
                         <Col xs="3" className='d-flex justify-content-center'>
                             <div className="ProfileAvatar"
-                                style={{ backgroundImage: "url(https://i.pinimg.com/564x/ff/2c/73/ff2c73e29739c316d38f8b1000a03afc.jpg)" }}>
+                                style={{ backgroundImage: `url(${APP_ENV.BASE_URL + "/images/" + user?.image})` }}>
                             </div>
                         </Col>
                         <Col xs="9">
                             <div className="UserDataProfile m-3 mt-4">
                                 <div className="NickNameProfile">
-                                    <a>NickName</a>
+                                    <a>{user?.name}</a>
                                 </div>
                                 <div className="CountryProfile">
-                                    <span className="fi fi-us"></span>
-                                    <a> USA</a>
+                                    <span className={`fi fi-${user?.countryCode}`}></span>
+                                    <a> {user?.country}</a>
                                 </div>
                                 <div className="StatusProfile mt-3 w-50">
-                                    <a>popular belief, Lorem Ipsum is not simply random tex</a>
+                                    <a>{user?.description}</a>
                                 </div>
                             </div>
                         </Col>
@@ -43,8 +65,13 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className="AllPostsProfile">
-                        <Thought avatar='https://i.pinimg.com/564x/ff/2c/73/ff2c73e29739c316d38f8b1000a03afc.jpg'
-                        nick='Jocn' text='ceful the likewise received building. An fact so to that show am shed sold cold. Unaffected remarkably get y'></Thought>
+                        {posts.map(p => {
+                            return (
+                                <Thought avatar={`${APP_ENV.BASE_URL + "/images/" + p.user.image}`} 
+                        nick={p.user.name} text={p.tweetText}></Thought>
+                            )
+                        })}
+                        
                     </div>
                 </div>
             </div>

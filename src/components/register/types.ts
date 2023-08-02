@@ -6,3 +6,11 @@ declare global {
     }
 }
 
+export interface ICreateGoogleUser{
+    name:string,
+    email:string,
+    image:string,
+    country:string,
+    countryCode:string,
+    token:string
+}
