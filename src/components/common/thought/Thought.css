@@ -14,7 +14,7 @@
 .ThoughtWrapper .ThoughtText {
   width: 100%;
   height: 100%;
-  padding: 10px 0;
+  padding-top: 10px;
   font-size: 13px;
 }
 .ThoughtWrapper .DataUserThought {
@@ -43,8 +43,18 @@
   color: #9E9696;
   font-size: 10px;
 }
+.ThoughtWrapper .images {
+  width: 100%;
+  display: grid;
+  gap: 15px;
+  margin-top: 10px;
+}
+.ThoughtWrapper .images .img-fluid {
+  border-radius: 5px;
+}
 .ThoughtWrapper .actions {
   display: flex;
+  margin-top: 10px;
 }
 .ThoughtWrapper .actions .actionBlock {
   margin-right: 15px;
