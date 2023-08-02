@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
 import axios from 'axios';
 import { formHttp, http } from '../../http';
+import AppleLogin from 'react-apple-login';
 
 const Login = () => {
     const navigator = useNavigate();
@@ -60,6 +61,7 @@ const Login = () => {
                                                                         id: user2.id,
                                                                         name: user2.name,
                                                                         image: user2.image,
+                                                                        email: user2.email
                                                                     } as IUser
                                                                 });
                                                                 console.log("nav");
@@ -78,10 +80,12 @@ const Login = () => {
                                                 console.log('Login Failed');
                                             }}
                                         />
+                                        
+                                      
                                     </div>
 
 
-                                    
+
                                 </div>
                             </div>
                         </div>

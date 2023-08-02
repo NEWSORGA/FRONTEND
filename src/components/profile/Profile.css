@@ -12,12 +12,16 @@
     min-height: 100vh;
     width: 50%;
     padding-top: 60px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ProfileAvatar {
     margin: 1rem;
-    width: 90%;
-    height: 90%;
+    width: 160px;
+    height: 160px;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 18px;
@@ -50,4 +54,15 @@ textarea {
 .btnProfile{
     background-color: rgb(155, 34, 34);
     margin-top: 1rem;
+}
+
+.AllPostsProfile{
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.loadProfile{
+    z-index: 10;
 }
