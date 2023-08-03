@@ -29,7 +29,9 @@ export interface ITweetView {
 export interface ITweetCreate {
     tweetText:string,
     mediaIds:number[],
-    repostedId:ITweetView|null|undefined
+    repostedId:ITweetView|null|undefined,
+    postTime: Date|null|undefined,
+    timeZone: string
 }
 
 export interface IMedia {

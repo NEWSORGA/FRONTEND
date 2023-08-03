@@ -37,7 +37,7 @@ const Profile = () => {
             urlPost = `Tweets/GetUserTweets?UserPageId=${id}`;
         http.get(urlPost).then(async (res) => {
             console.log("Post: ", res.data);
-            await sleep(1000);
+            await sleep(500);
             setLoadPosts(false);
             setPosts(res.data);
 
