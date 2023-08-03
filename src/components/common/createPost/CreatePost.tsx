@@ -236,14 +236,14 @@ export const CreatePost = (props: any) => {
                                     <Icon color='#EB4C42' onClick={handleShow} height={20} width={20}></Icon>
                                 </button>
 
-                                <Modal show={show} onHide={handleClose}>
-                                    <Modal.Header closeButton>
+                                <Modal show={show} centered className='modalSchedule' onHide={handleClose}>
+                                    <Modal.Header className='scheduleHeader'>
                                         Schedule
                                     </Modal.Header>
-                                    <Modal.Body>
+                                    <Modal.Body className='scheduleBody'>
 
                                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                            <StaticDateTimePicker ampm={false} orientation="landscape" onClose={handleClose} onAccept={handleClose} minDateTime={dayjs(new Date())} onChange={(value) => { setFieldValue("postTime", value?.toDate()); console.log(value?.toDate()); setFieldValue("timeZone", value?.utcOffset()) }} />
+                                            <StaticDateTimePicker className='schedule' ampm={false} orientation="landscape" onClose={handleClose} onAccept={handleClose} minDateTime={dayjs(new Date())} onChange={(value) => { setFieldValue("postTime", value?.toDate()); console.log(value?.toDate()); setFieldValue("timeZone", value?.utcOffset()) }} />
                                         </LocalizationProvider>
                                     </Modal.Body>
                                 </Modal>

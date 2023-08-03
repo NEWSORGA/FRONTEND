@@ -86,4 +86,100 @@
   font-size: 14px;
   padding: 4px 20px;
   border: 0;
+  transition: 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.WritePost form .inputBlock .buttons .btnProfile:hover {
+  filter: drop-shadow(0px 0px 5px rgb(241, 18, 18));
+}
+
+.modalSchedule {
+  overflow: hidden;
+}
+.modalSchedule .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: transparent;
+}
+.modalSchedule .btn-close {
+  --bs-btn-close-color: #bb1717 !important;
+  fill: red;
+}
+.modalSchedule .scheduleHeader {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff;
+}
+.modalSchedule .scheduleHeader .btn-close {
+  color: #fff !important;
+}
+.modalSchedule .scheduleBody {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff !important;
+}
+.modalSchedule .scheduleBody .schedule {
+  background-color: transparent;
+  color: #fff !important;
+}
+.modalSchedule .scheduleBody .schedule .MuiSvgIcon-root {
+  color: white;
+}
+.modalSchedule .scheduleBody .schedule .MuiTypography-root {
+  color: white;
+}
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-root, .modalSchedule .scheduleBody .schedule .MuiClock-pin, .modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {
+  background-color: #fc564d;
+}
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {
+  border: 16px solid #D74840;
+}
+.modalSchedule .scheduleBody .schedule .Mui-selected {
+  color: #9c9a9a;
+  color: #D74840;
+}
+.modalSchedule .scheduleBody .schedule .Mui-selected .MuiSvgIcon-root {
+  color: #D74840;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersDay-root.Mui-selected {
+  background-color: #D74840 !important;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersDay-root {
+  color: #e6e6e6;
+}
+.modalSchedule .scheduleBody .schedule .Mui-disabled.MuiPickersDay-root {
+  color: #888787;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersDay-today {
+  border: 1px solid #6e2b27;
+}
+.modalSchedule .scheduleBody .schedule .MuiClockNumber-root {
+  color: #e6e6e6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersYear-yearButton.Mui-selected {
+  background-color: #D74840 !important;
+  color: rgb(235, 233, 233);
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersYear-yearButton {
+  transition: 0.3s;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersYear-yearButton:hover {
+  background-color: rgb(22, 22, 22) !important;
+}
+.modalSchedule .scheduleBody .schedule .MuiTabs-indicator {
+  background-color: #D74840;
+}
+.modalSchedule .scheduleBody .schedule .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  background-color: #D74840;
+  border-radius: 15px;
+  margin-right: 10px;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 20px;
 }/*# sourceMappingURL=createPost.css.map */

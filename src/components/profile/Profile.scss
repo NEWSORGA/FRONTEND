@@ -15,8 +15,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgba(16, 18, 21, 0.9);
-
+        background-color: rgba(16, 18, 21, 0.8);
+        backdrop-filter: blur(10px);
         .profileLine {
             display: grid;
             grid-template-columns: 140px 4fr 2fr;
