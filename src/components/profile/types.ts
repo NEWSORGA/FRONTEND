@@ -7,7 +7,11 @@ export interface IUserView {
     description:string,
     verified:boolean,
     country:string,
-    countryCode:string
+    countryCode:string,
+    followers:number,
+    following:number,
+    likes:number,
+    isFollowed:boolean
 }
 
 export interface ITweetView {

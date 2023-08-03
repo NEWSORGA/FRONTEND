@@ -15,8 +15,9 @@
   width: 100%;
   height: 100%;
   padding-top: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: #FFFFFF;
+  font-weight: 200;
 }
 .ThoughtWrapper .DataUserThought {
   display: flex;
@@ -34,15 +35,16 @@
 }
 .ThoughtWrapper .DataUserThought .nickAndTime .NickThought {
   color: #FFFFFF;
-  font-size: 12px;
+  font-size: 13px;
   transition: 0.3s;
+  font-weight: 500;
 }
 .ThoughtWrapper .DataUserThought .nickAndTime .NickThought:hover {
   color: #b6b6b6;
 }
 .ThoughtWrapper .DataUserThought .nickAndTime .time {
   color: #9E9696;
-  font-size: 10px;
+  font-size: 11px;
 }
 .ThoughtWrapper .images {
   width: 100%;
@@ -52,6 +54,7 @@
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid #31343B;
+  max-height: 500px;
 }
 .ThoughtWrapper .images .imgUp {
   height: 100%;
