@@ -9,43 +9,41 @@
     .ProfileBackground {
         z-index: 2;
         min-height: 100vh;
-        width: 40%;
-        padding: 60px 15px;
+        width: 50%;
+       padding-top: 40px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: rgba(16, 18, 21, 0.9);
 
-        .loadProfile {
-            z-index: 10;
-        }
-
         .profileLine {
             display: grid;
-            grid-template-columns: 150px 1fr;
-            margin: 20px 0;
+            grid-template-columns: 140px 4fr 2fr;
+            padding: 20px 20px;
+            margin-top: 20px;
+            width: 100%;
+            .ProfileAvatarBlock {
 
-            .ProfileAvatarBlock{
-                
-                flex: 150px;
-                
+                flex: 140px;
+
                 .ProfileAvatar {
-                    width: 150px;
-                    height: 150px;
+                    width: 140px;
+                    height: 140px;
                     background-repeat: no-repeat;
                     background-size: cover;
                     border-radius: 10px;
-                  
+
                 }
             }
-            
+
 
             .UserDataProfile {
                 margin: 0 20px;
-
+                width: 100%;
                 .NickNameProfile {
                     a {
-                        font-size: 24px;
+                        font-size: 22px;
                         font-weight: 200;
                         color: #FFFFFF;
                     }
@@ -53,35 +51,151 @@
                 }
 
                 .CountryProfile {
+                    display: flex;
+                    align-items: center;
+
                     a {
-                        font-size: 14px;
+                        font-size: 12px;
                         color: #dededf;
+                        margin-left: 3px;
                     }
                 }
 
                 .flag {
                     height: 12px;
+
                 }
 
                 .StatusProfile {
                     margin-top: 5px;
 
                     a {
-                        font-size: 18px;
+                        font-size: 16px;
                         font-family: 'Dancing Script', cursive;
                         color: #c5c4c4 !important;
                     }
                 }
             }
+            .profileActions{
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                width: 100%;
+                .folBtn{
+                    padding: 5px 20px;
+                    border-radius: 20px;
+                    transition: 0.3s;
+                    border: 0;
+                    width: 100px;
+                }
+                .followed{
+                    background-color: transparent;
+                    color: #D74840;
+                    font-weight: 400;
+                    font-size: 14px;
+                    border: 2px solid #D74840;
+                    &:hover{
+                        background-color: #D74840;
+                        color: #ffffff;
+                    }
+                }
+                .follow{
+                    background-color: #D74840;
+                    color: #ffffff;
+                    font-weight: 400;
+                    font-size: 14px;
+                    border: 2px solid #D74840;
+                  
+                    &:hover{
+                        background-color: #D74840;
+                        color: #ffffff;
+                        filter: drop-shadow(0px 0px 10px rgba(241, 18, 18, 1));
+                    }
+                }
+            }
         }
 
-        
-
-        .AllPostsProfile {
-            justify-content: center;
-            align-items: center;
+        .contentStatistic {
             display: flex;
+            width: 100%;
+
+            .leftContent {
+                flex: 65%;
+                width: 100%;
+                background-color: rgba(16, 18, 21, 0.4);
+                border: 1px solid #fff;
+                border-image: linear-gradient(45deg, purple, #2080ce, #D74840) 1;
+                border-left: 0;
+                border-bottom: 0;
+                padding: 20px 0;
+                min-height: 100vh;
+
+                .createPost {
+                    padding: 0 20px;
+                }
+
+                .AllPostsProfile {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    padding: 10px 20px;
+                }
+            }
+
+            .rightContent {
+                flex: 35%;
+                width: 100%;
+                animation: pulsate 1.5s infinite alternate;
+
+                height: 100%;
+
+                padding: 10px 20px;
+              
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: start;
+
+                .boxRounded {
+                    background-color: rgba(29, 32, 37, 0.8);
+                    width: 100%;
+                    margin: 10px 0;
+                    border-radius: 5px;
+                    padding: 15px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .statistic {
+                    .statItem {
+                        margin: 5px 0;
+                        display: flex;
+                        align-items: center;
+
+                        .item {
+                            color: #d6d3d3;
+                            font-size: 14px;
+                            font-weight: 100;
+                        }
+
+                        .count {
+                            color: #b9b7b7;
+                            font-size: 14px;
+                            margin-left: 5px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
         }
+
+
+
+        .loadProfile {
+            z-index: 10;
+        }
+
+
     }
 
 }
