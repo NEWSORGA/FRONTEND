@@ -46,12 +46,18 @@
     .images {
         width: 100%;
         display: grid;
-        gap: 15px;
+        gap: 3px;
         margin-top: 10px;
-
-        .img-fluid {
-            border-radius: 5px;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid #31343B;
+        .imgUp{
+            height: 100%;
+            .img-fluid {
+                object-fit: cover;
+            }
         }
+        
     }
     .actions{
         display: flex;

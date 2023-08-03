@@ -19,18 +19,19 @@
   z-index: 10;
 }
 .ProfileWrapper .ProfileBackground .profileLine {
-  display: flex;
-  align-items: start;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 150px 1fr;
   margin: 20px 0;
 }
-.ProfileWrapper .ProfileBackground .profileLine .ProfileAvatar {
-  min-width: 150px;
+.ProfileWrapper .ProfileBackground .profileLine .ProfileAvatarBlock {
+  flex: 150px;
+}
+.ProfileWrapper .ProfileBackground .profileLine .ProfileAvatarBlock .ProfileAvatar {
+  width: 150px;
   height: 150px;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
-  flex: 150px;
 }
 .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile {
   margin: 0 20px;
@@ -53,67 +54,6 @@
   font-size: 18px;
   font-family: "Dancing Script", cursive;
   color: #c5c4c4 !important;
-}
-.ProfileWrapper .ProfileBackground .WritePost {
-  width: 100%;
-  background-color: #1D2025;
-  border-radius: 5px;
-  padding: 15px;
-  display: flex;
-}
-.ProfileWrapper .ProfileBackground .WritePost form {
-  width: 100%;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock {
-  display: flex;
-  flex: 90%;
-  flex-direction: column;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .inputPost {
-  background-color: transparent;
-  border: 0;
-  box-shadow: 0;
-  outline: 0;
-  resize: none;
-  height: -moz-fit-content;
-  height: fit-content;
-  overflow: hidden;
-  width: 100%;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .images {
-  width: 100%;
-  display: grid;
-  gap: 15px;
-  margin-top: 10px;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .images .img-fluid {
-  border-radius: 5px;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  width: 100%;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .buttons .actions .inputBtn {
-  cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  transition: 0.3s;
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .buttons .actions .inputBtn:hover {
-  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
-}
-.ProfileWrapper .ProfileBackground .WritePost form .inputBlock .buttons .btnProfile {
-  background-color: rgba(235, 76, 66, 0.9);
-  flex: 1fr;
-  display: block;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 14px;
-  padding: 4px 20px;
-  border: 0;
 }
 .ProfileWrapper .ProfileBackground .AllPostsProfile {
   justify-content: center;

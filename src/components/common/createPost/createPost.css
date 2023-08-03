@@ -1,0 +1,72 @@
+.WritePost {
+  width: 100%;
+  background-color: #1D2025;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+}
+.WritePost form {
+  width: 100%;
+}
+.WritePost form .inputBlock {
+  display: flex;
+  flex: 90%;
+  flex-direction: column;
+}
+.WritePost form .inputBlock .inputPost {
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0;
+  outline: 0;
+  resize: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  width: 100%;
+}
+.WritePost form .inputBlock .images {
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #31343B;
+}
+.WritePost form .inputBlock .images .imgUp {
+  height: 100%;
+}
+.WritePost form .inputBlock .images .imgUp .img-fluid {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.WritePost form .inputBlock .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+.WritePost form .inputBlock .buttons .actions .inputBtn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  transition: 0.3s;
+}
+.WritePost form .inputBlock .buttons .actions .inputBtn:hover {
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.WritePost form .inputBlock .buttons .actions .disable {
+  opacity: 85% !important;
+  cursor: none;
+}
+.WritePost form .inputBlock .buttons .btnProfile {
+  background-color: rgba(235, 76, 66, 0.9);
+  flex: 1fr;
+  display: block;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 20px;
+  border: 0;
+}/*# sourceMappingURL=CreatePost.css.map */
