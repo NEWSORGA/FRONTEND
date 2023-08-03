@@ -54,8 +54,9 @@
                         margin-right: 15px;
                         display: flex;
                         justify-content: center;
+                        
                     }
-   
+                    
                     .inputBtn {
                         cursor: pointer;
                         background-color: transparent;
@@ -92,7 +93,11 @@
                     font-size: 14px;
                     padding: 4px 20px;
                     border: 0;
-                    
+                    transition: 0.3s;
+                    backdrop-filter: blur(10px);
+                    &:hover{
+                        filter: drop-shadow(0px 0px 5px rgba(241, 18, 18, 1));
+                    }
                 }
             }
         }
@@ -100,4 +105,99 @@
     }
     
 
+}
+
+.modalSchedule{
+    overflow: hidden;
+    
+
+.modal-content{
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.btn-close{
+    --bs-btn-close-color: #bb1717 !important;
+    fill: red;
+}
+    .scheduleHeader{
+        background-color: rgba(29,32,37, 0.7) !important;
+        backdrop-filter: blur(10px);
+        color: #fff;
+        .btn-close{
+            color: #fff !important;
+        }
+    }
+    .scheduleBody{
+        background-color: rgba(29,32,37, 0.7) !important;
+        backdrop-filter: blur(10px);
+        color: #fff !important;
+        .schedule{
+            background-color: transparent;
+            color: #fff !important;
+            .MuiSvgIcon-root{
+                color: white;
+            }
+            .MuiTypography-root{
+                color: white;
+            }
+            .MuiClockPointer-root, .MuiClock-pin, .MuiClockPointer-thumb{
+                background-color: #fc564d;
+            }
+            .MuiClockPointer-thumb{
+                border: 16px solid #D74840;
+            }
+            
+            .Mui-selected{
+                color: #9c9a9a;
+                color: #D74840;
+                
+                .MuiSvgIcon-root{
+                    color: #D74840;
+                }
+            }
+            .MuiPickersDay-root.Mui-selected{
+                background-color: #D74840 !important;
+                
+            }
+            .MuiPickersDay-root{
+                color: #e6e6e6;
+            }
+            .Mui-disabled.MuiPickersDay-root{
+                color: #888787;
+            }
+            .MuiPickersDay-today{
+                border: 1px solid #6e2b27;
+            }
+            .MuiClockNumber-root{
+                color: #e6e6e6;
+                font-family:Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                font-weight: 200;
+            }
+            .MuiPickersYear-yearButton.Mui-selected{
+                background-color: #D74840 !important;
+                color: rgb(235, 233, 233);
+
+            }
+            .MuiPickersYear-yearButton{
+                transition: 0.3s;
+                &:hover{
+                    background-color: rgb(22, 22, 22) !important;
+                }
+            }
+            .MuiTabs-indicator{
+                background-color: #D74840;
+            }
+            .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+                background-color: #D74840;
+                border-radius: 15px;
+                margin-right: 10px;
+                color: #fff;
+                font-weight: bold;
+                padding: 3px 20px;
+            }
+        }
+    }
 }
