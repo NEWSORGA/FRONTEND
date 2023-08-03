@@ -1,18 +1,45 @@
-import React, { ChangeEvent, useRef } from 'react'
+import React, { ChangeEvent, MouseEventHandler, useRef } from 'react'
 import { useEffect, useState, } from 'react';
 import { ITweetCreate, IUploadImage, IUploadImageResult } from '../../profile/types';
 import { formHttp, http } from '../../../http';
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { APP_ENV } from '../../../env';
-import './createPost.css'
+import './createPost.css';
+import Icon from "react-multi-date-picker/components/icon";
+import { Button, Modal } from 'react-bootstrap';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { StaticDateTimePicker } from '@mui/x-date-pickers/StaticDateTimePicker';
+import dayjs from 'dayjs';
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 
-export const CreatePost = (props:any) => {
+export const CreatePost = (props: any) => {
     const [gridColumns, setGridColumns] = useState<string>();
     const [gridRows, setGridRows] = useState<string>();
     const [images, setImages] = useState<IUploadImageResult[]>([]);
     const [disableImages, setDisableImages] = useState<boolean>(false);
+    const [showEmoji, setShowEmoji] = useState<boolean>(false);
 
+    const container = useRef<HTMLDivElement>(null);
+    const btn = useRef<HTMLButtonElement>(null);
+    const handleClickOutside = (event:MouseEvent) => {
+        console.log(container);
+        if (container.current && !container.current.contains(event.target as Node) && btn.current && !btn.current.contains(event.target as Node)) {
+          setShowEmoji(false);
+        }
+      }
+
+    useEffect(() => {
+
+        window.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            window.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, [container]);
+
+      
 
     const setGrid = () => {
         console.log(images.length);
@@ -41,7 +68,9 @@ export const CreatePost = (props:any) => {
     const initValues: ITweetCreate = {
         tweetText: "",
         mediaIds: [],
-        repostedId: null
+        repostedId: null,
+        postTime: null,
+        timeZone: "0"
     };
 
     const createSchema = yup.object({
@@ -49,6 +78,13 @@ export const CreatePost = (props:any) => {
     });
 
     const onSubmitFormikData = (values: ITweetCreate) => {
+        console.log("Values", values);
+        if (values.postTime != null) {
+            var now_utc = Date.UTC(values.postTime.getUTCFullYear(), values.postTime.getUTCMonth(),
+                values.postTime.getUTCDate(), values.postTime.getUTCHours(),
+                values.postTime.getUTCMinutes(), values.postTime.getUTCSeconds());
+            setFieldValue("postTime", now_utc);
+        }
         console.log("Values", values);
         formHttp.post('tweets/createTweet', values)
             .then(resp => {
@@ -58,6 +94,8 @@ export const CreatePost = (props:any) => {
                     props.loadPosts();
                 }
             });
+
+
 
     }
 
@@ -99,7 +137,7 @@ export const CreatePost = (props:any) => {
 
 
     const onChangeImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        if(!disableImages){
+        if (!disableImages) {
             const files = e.target.files;
             if (files) {
                 console.log("files");
@@ -119,13 +157,13 @@ export const CreatePost = (props:any) => {
                         setImages([...images, resp.data]);
                         setFieldValue("mediaIds", [...values.mediaIds, resp.data.id]);
                         setGrid();
-                        if(images.length == 3)
+                        if (images.length == 3)
                             setDisableImages(true);
                     })
                     .catch(bad => {
                         console.log("Bad request", bad);
                     })
-    
+
             }
         }
     }
@@ -143,6 +181,10 @@ export const CreatePost = (props:any) => {
     const { values, handleSubmit, setFieldValue } = formik;
 
     useAutosizeTextArea(textAreaRef.current, values.tweetText);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <div className="WritePost">
@@ -155,7 +197,7 @@ export const CreatePost = (props:any) => {
                             <div key={img.id} className="col position-relative" style={i == 0 && images.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                                 <div className="imgUp">
                                     <img
-                                        src={`${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                        src={images.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
                                         className="img-fluid"
                                         alt="Зображення"
                                         style={{ height: '100%', width: '100%', overflow: 'hidden' }}
@@ -168,7 +210,7 @@ export const CreatePost = (props:any) => {
 
                     <div className='buttons'>
                         <div className='actions'>
-                            <div className={disableImages ? "image-upload inputBtn disable" : "image-upload inputBtn"}>
+                            <div className={disableImages ? "image-upload inputBtn disable action" : "image-upload inputBtn action"}>
                                 <label htmlFor="file-input">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" viewBox="0 0 32 32" version="1.1">
 
@@ -186,9 +228,41 @@ export const CreatePost = (props:any) => {
                                         </g>
                                     </svg>
                                 </label>
-                                <input id="file-input" onChange={onChangeImageHandler} style={{ display: 'none' }} height={0} width={0} type="file" disabled={disableImages}/>
+                                <input id="file-input" onChange={onChangeImageHandler} style={{ display: 'none' }} height={0} width={0} type="file" disabled={disableImages} />
+                            </div>
+
+                            <div className="datetime action">
+                                <button type='button' className='inputBtn'>
+                                    <Icon color='#EB4C42' onClick={handleShow} height={20} width={20}></Icon>
+                                </button>
+
+                                <Modal show={show} onHide={handleClose}>
+                                    <Modal.Header closeButton>
+                                        Schedule
+                                    </Modal.Header>
+                                    <Modal.Body>
+
+                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                            <StaticDateTimePicker ampm={false} orientation="landscape" onClose={handleClose} onAccept={handleClose} minDateTime={dayjs(new Date())} onChange={(value) => { setFieldValue("postTime", value?.toDate()); console.log(value?.toDate()); setFieldValue("timeZone", value?.utcOffset()) }} />
+                                        </LocalizationProvider>
+                                    </Modal.Body>
+                                </Modal>
+                            </div>
+                            <div className="datetime action">
+                                <button type='button' className='inputBtn' ref={btn} onClick={() => showEmoji ? setShowEmoji(false) : setShowEmoji(true)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#EB4C42" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                        <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z" />
+                                    </svg>
+                                </button>
+                                <div className='emojiPicker' ref={container} style={{display: showEmoji ? "block" : "none"}}>
+                                    <Picker data={data} emojiButtonSize={28} previewPosition={"none"}  maxFrequentRows={4} emojiSize={22} className="emojiPicker" onEmojiSelect={(value: any) => { setFieldValue("tweetText", values.tweetText + value.native) }} />
+                                </div>
+
                             </div>
                         </div>
+                        {/* {values.postTime != undefined ? values.postTime.toLocaleString() : ""} -
+                        {values.timeZone} */}
                         <button className="btnProfile" type='submit'>Send</button>
                     </div>
 

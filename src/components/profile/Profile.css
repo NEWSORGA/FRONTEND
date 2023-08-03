@@ -39,6 +39,7 @@
 .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .NickNameProfile a {
   font-size: 24px;
   font-weight: 200;
+  color: #FFFFFF;
 }
 .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .CountryProfile a {
   font-size: 14px;

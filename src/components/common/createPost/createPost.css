@@ -23,6 +23,7 @@
   height: fit-content;
   overflow: hidden;
   width: 100%;
+  color: #fff;
 }
 .WritePost form .inputBlock .images {
   width: 100%;
@@ -47,6 +48,15 @@
   margin-top: 10px;
   width: 100%;
 }
+.WritePost form .inputBlock .buttons .actions {
+  display: flex;
+  flex-direction: row;
+}
+.WritePost form .inputBlock .buttons .actions .action {
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+}
 .WritePost form .inputBlock .buttons .actions .inputBtn {
   cursor: pointer;
   background-color: transparent;
@@ -55,6 +65,12 @@
 }
 .WritePost form .inputBlock .buttons .actions .inputBtn:hover {
   filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.WritePost form .inputBlock .buttons .actions .emojiPicker {
+  z-index: 5;
+  overflow: hidden;
+  position: absolute;
+  margin-top: 30px;
 }
 .WritePost form .inputBlock .buttons .actions .disable {
   opacity: 85% !important;
@@ -69,4 +85,4 @@
   font-size: 14px;
   padding: 4px 20px;
   border: 0;
-}/*# sourceMappingURL=CreatePost.css.map */
+}/*# sourceMappingURL=createPost.css.map */

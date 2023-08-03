@@ -93,7 +93,7 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
                         <div key={img.id} className="col position-relative" style={i == 0 && tweet.medias.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                             <div className="imgUp">
                                 <img
-                                    src={`${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                     src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
                                     className="img-fluid"
                                     alt="Зображення"
                                     style={{ height: '100%', width: '100%', overflow: 'hidden' }}
