@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { IAuthUser } from '../../store/types';
 import { APP_ENV } from '../../env';
-import React, { ChangeEvent, useEffect, useState, useRef } from 'react';
 
 const Header = () => {
     const { user, isAuth } = useSelector((store: any) => store.auth as IAuthUser);

@@ -2,7 +2,7 @@
 import './Profile.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Thought from '../common/thought/Thought';
-import { ChangeEvent, useEffect, useState, } from 'react';
+import { useEffect, useState, } from 'react';
 import { useSearchParams, } from 'react-router-dom';
 import { ITweetView, IUserView } from './types';
 import { http } from '../../http';
@@ -10,12 +10,12 @@ import { APP_ENV } from '../../env';
 import { useSelector } from "react-redux";
 import { IAuthUser } from '../../store/types';
 import { MutatingDots } from 'react-loader-spinner';
-import { CreatePost } from '../common/createPost/createPost';
+import { CreatePost } from '../common/createPost/CreatePost';
 
 const Profile = () => {
     const [userPage, setUser] = useState<IUserView>();
     const [posts, setPosts] = useState<ITweetView[]>([]);
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const { user, isAuth } = useSelector((store: any) => store.auth as IAuthUser);
     const [loadingProfile, setLoadProfile] = useState<boolean>();
     const [loadingPosts, setLoadPosts] = useState<boolean>();
@@ -45,10 +45,6 @@ const Profile = () => {
         });
     }
 
-    const logP = () => {
-        console.log("lalal");
-    }
-
     const loadProfile = () => {
         var id = searchParams.get("id");
         setLoadProfile(true);
@@ -70,9 +66,9 @@ const Profile = () => {
 
 
 
-    function sleep(ms: number) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    // function sleep(ms: number) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
 
     const follow = () => {
         if (followed == false) {
