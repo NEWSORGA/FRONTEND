@@ -133,6 +133,17 @@
     color: #ff0000;
 }
 
+.title{
+    color: #fff;
+}
+
+.desc{
+    color: #d4d2d2;
+}
+.continue{
+    color: #D74840;
+}
+
 @media (max-width:767px) {
     body {
         padding: 10px;

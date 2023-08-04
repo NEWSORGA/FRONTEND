@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import jwtDecode from "jwt-decode";
 import axios from 'axios';
 import { formHttp, http } from '../../http';
-import AppleLogin from 'react-apple-login';
 
 const Login = () => {
     const navigator = useNavigate();
@@ -25,10 +24,10 @@ const Login = () => {
                         </div>
                         <div className=" box-2 d-flex flex-column h-100">
                             <div className="mt-5">
-                                <p className="mb-1 h-1 mb-3">Login</p>
-                                <p className="mb-2 mb-3">Share your thouhts with the world form today.</p>
+                                <p className="mb-1 h-1 mb-3 title">Login</p>
+                                <p className="mb-2 mb-3 desc">Share your thouhts with the world form today.</p>
                                 <div className="d-flex flex-column">
-                                    <p className="mb-2 mb-3">Continue with...</p>
+                                    <p className="mb-2 mb-3 continue">Continue with...</p>
                                     <div className='googleLogin'>
                                         <GoogleLogin
                                             text='continue_with'
