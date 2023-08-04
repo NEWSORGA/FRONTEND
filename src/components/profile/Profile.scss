@@ -5,24 +5,26 @@
     z-index: 1;
     min-height: 100vh;
     width: 100%;
-
+    background-size: contain;
     .ProfileBackground {
         z-index: 2;
         min-height: 100vh;
         width: 50%;
-       padding-top: 40px;
+        padding-top: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgba(16, 18, 21, 0.8);
+        background-color: rgba(16, 18, 21, 0.6);
         backdrop-filter: blur(10px);
+
         .profileLine {
             display: grid;
             grid-template-columns: 140px 4fr 2fr;
             padding: 20px 20px;
             margin-top: 20px;
             width: 100%;
+
             .ProfileAvatarBlock {
 
                 flex: 140px;
@@ -41,6 +43,7 @@
             .UserDataProfile {
                 margin: 0 20px;
                 width: 100%;
+
                 .NickNameProfile {
                     a {
                         font-size: 22px;
@@ -76,37 +79,42 @@
                     }
                 }
             }
-            .profileActions{
+
+            .profileActions {
                 display: flex;
                 justify-content: end;
                 align-items: center;
                 width: 100%;
-                .folBtn{
+
+                .folBtn {
                     padding: 5px 20px;
                     border-radius: 20px;
                     transition: 0.3s;
                     border: 0;
                     width: 100px;
                 }
-                .followed{
+
+                .followed {
                     background-color: transparent;
                     color: #D74840;
                     font-weight: 400;
                     font-size: 14px;
                     border: 2px solid #D74840;
-                    &:hover{
+
+                    &:hover {
                         background-color: #D74840;
                         color: #ffffff;
                     }
                 }
-                .follow{
+
+                .follow {
                     background-color: #D74840;
                     color: #ffffff;
                     font-weight: 400;
                     font-size: 14px;
                     border: 2px solid #D74840;
-                  
-                    &:hover{
+
+                    &:hover {
                         background-color: #D74840;
                         color: #ffffff;
                         filter: drop-shadow(0px 0px 10px rgba(241, 18, 18, 1));
@@ -124,7 +132,7 @@
                 width: 100%;
                 background-color: rgba(16, 18, 21, 0.4);
                 border: 1px solid #fff;
-                border-image: linear-gradient(45deg, purple, #2080ce, #D74840) 1;
+                border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6),rgba(248, 90, 82, 0.6)) 1;
                 border-left: 0;
                 border-bottom: 0;
                 padding: 20px 0;
@@ -150,14 +158,14 @@
                 height: 100%;
 
                 padding: 10px 20px;
-              
+
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: start;
 
                 .boxRounded {
-                    background-color: rgba(29, 32, 37, 0.8);
+                    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5),rgba(51, 47, 47, 0.5)) ;
                     width: 100%;
                     margin: 10px 0;
                     border-radius: 5px;

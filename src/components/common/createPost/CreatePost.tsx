@@ -256,7 +256,7 @@ export const CreatePost = (props: any) => {
                                     </svg>
                                 </button>
                                 <div className='emojiPicker' ref={container} style={{display: showEmoji ? "block" : "none"}}>
-                                    <Picker data={data} emojiButtonSize={28} previewPosition={"none"}  maxFrequentRows={4} emojiSize={22} className="emojiPicker" onEmojiSelect={(value: any) => { setFieldValue("tweetText", values.tweetText + value.native) }} />
+                                    <Picker data={data} emojiButtonSize={28} previewPosition={"none"} zIndex={5}  emojiSize={22} className="emojiPicker" onEmojiSelect={(value: any) => { setFieldValue("tweetText", values.tweetText + value.native) }} />
                                 </div>
 
                             </div>
