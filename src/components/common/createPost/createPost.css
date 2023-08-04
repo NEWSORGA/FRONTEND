@@ -133,7 +133,9 @@
 .modalSchedule .scheduleBody .schedule .MuiTypography-root {
   color: white;
 }
-.modalSchedule .scheduleBody .schedule .MuiClockPointer-root, .modalSchedule .scheduleBody .schedule .MuiClock-pin, .modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-root,
+.modalSchedule .scheduleBody .schedule .MuiClock-pin,
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {
   background-color: #fc564d;
 }
 .modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {

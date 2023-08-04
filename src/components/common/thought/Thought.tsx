@@ -3,19 +3,41 @@ import { APP_ENV } from '../../../env';
 import { ITweetView } from '../../profile/types';
 import './Thought.css'
 import { http } from '../../../http';
-import { useEffect, useState, } from 'react';
+import { useEffect, useRef, useState, } from 'react';
+import { Modal } from 'react-bootstrap';
+import { IAuthUser } from '../../../store/types';
+import { useSelector } from 'react-redux';
 
-const Thought = ({ tweet }: { tweet: ITweetView }) => {
+const Thought = ({ tweet, loadPosts }: { tweet: ITweetView, loadPosts:any }) => {
     const [liked, setLike] = useState<boolean>();
     const [likesCount, setLikesCount] = useState<number>();
     const [gridColumns, setGridColumns] = useState<string>();
     const [gridRows, setGridRows] = useState<string>();
+    const container = useRef<HTMLDivElement>(null);
+    const [thoughtMenu, setThoughtMenu] = useState<boolean>(false);
+    const btn = useRef<HTMLButtonElement>(null);
+    const { user } = useSelector((store: any) => store.auth as IAuthUser);
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    const handleClickOutside = (event: MouseEvent) => {
+        console.log(btn);
+        if (container.current && !container.current.contains(event.target as Node) && btn.current && !btn.current.contains(event.target as Node)) {
+            setThoughtMenu(false);
+        }
+    }
+
     useEffect(() => {
         setLike(tweet.liked);
         setLikesCount(tweet.likesCount);
         setGrid();
-
-    }, [tweet])
+        window.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            window.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [tweet, btn])
 
     const setGrid = () => {
         switch (tweet.medias.length) {
@@ -66,23 +88,61 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
         });
     }
 
+
+    const deletePost = () => {
+        http.delete("/tweets/" + tweet?.id).then((res) => {
+            if(res.data == "Deleted"){
+                loadPosts();
+            }
+        });
+    }
+
     return (
 
         <>
 
             <div className="ThoughtWrapper">
-                <div className="DataUserThought">
-                    <Link to={`/profile?id=${tweet?.user.id}`}>
-                        <img src={`${APP_ENV.BASE_URL + "/images/" + tweet?.user.image}`} className="rounded-circle" />
-                    </Link>
+                <div className='ThoughtHeader'>
+                    <div className="DataUserThought">
+                        <Link to={`/profile?id=${tweet?.user.id}`}>
+                            <img src={`${APP_ENV.BASE_URL + "/images/" + tweet?.user.image}`} className="rounded-circle" />
+                        </Link>
 
-                    <div className='nickAndTime'>
-                        <Link to={`/profile?id=${tweet?.user.id}`} className="NickThought">{tweet?.user.name}</Link>
+                        <div className='nickAndTime'>
+                            <Link to={`/profile?id=${tweet?.user.id}`} className="NickThought">{tweet?.user.name}</Link>
 
-                        <span className='time'>{tweet?.createdAtStr}</span>
+                            <span className='time'>{tweet?.createdAtStr}</span>
+                        </div>
+
                     </div>
+                    <div className='ThoughtMenu'>
+                        <button className='menuBtn' onClick={() => thoughtMenu ? setThoughtMenu(false) : setThoughtMenu(true)} ref={btn}>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" version="1.1" id="Capa_1" viewBox="0 0 32.055 32.055">
+                                <g>
+                                    <path fill='#3E444F' d="M3.968,12.061C1.775,12.061,0,13.835,0,16.027c0,2.192,1.773,3.967,3.968,3.967c2.189,0,3.966-1.772,3.966-3.967   C7.934,13.835,6.157,12.061,3.968,12.061z M16.233,12.061c-2.188,0-3.968,1.773-3.968,3.965c0,2.192,1.778,3.967,3.968,3.967   s3.97-1.772,3.97-3.967C20.201,13.835,18.423,12.061,16.233,12.061z M28.09,12.061c-2.192,0-3.969,1.774-3.969,3.967   c0,2.19,1.774,3.965,3.969,3.965c2.188,0,3.965-1.772,3.965-3.965S30.278,12.061,28.09,12.061z" />
+                                </g>
+                            </svg>
+                        </button>
+                        <div className='dropdownMenu' ref={container} style={{ display: thoughtMenu ? "block" : "none", opacity: thoughtMenu ? "100%" : "0%" }}>
+                            <ul>
+                                {user?.id != undefined && tweet.user.id == parseInt(user?.id) ? <li onClick={handleShow}>Delete</li> : null}
+                                
+                            </ul>
+                        </div>
+                        <Modal show={show} centered className='confirmDelete' onHide={handleClose} >
+                            <Modal.Body className='confirmDeleteBody'>
+                                <div className='title'>Delete thought?</div>
+                                <div className='description'>Your post will be removed from your profile. You can't get it back</div>
+                                <div className='ModalButtons'>
+                                    <button className='btnModal' onClick={deletePost}>Delete</button>
+                                    <button className='btnModal' onClick={handleClose}>Cancel</button>
+                                </div>
+                            </Modal.Body>
+                        </Modal>
 
+                    </div>
                 </div>
+
 
                 <div className="ThoughtText">
                     {tweet?.tweetText}
@@ -93,7 +153,7 @@ const Thought = ({ tweet }: { tweet: ITweetView }) => {
                         <div key={img.id} className="col position-relative" style={i == 0 && tweet.medias.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                             <div className="imgUp">
                                 <img
-                                     src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                    src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
                                     className="img-fluid"
                                     alt="Зображення"
                                     style={{ height: '100%', width: '100%', overflow: 'hidden' }}

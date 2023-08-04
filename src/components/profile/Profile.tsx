@@ -167,7 +167,7 @@ const Profile = () => {
                                         :
                                         posts.map(p => {
                                             return (
-                                                <Thought key={p.id} tweet={p} />
+                                                <Thought key={p.id} tweet={p} loadPosts={loadPosts} />
                                             )
                                         })
                                     }
