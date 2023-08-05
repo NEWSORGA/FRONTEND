@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { AuthUserActionType, ILoginGoogleUser, ILoginResult, IUser } from '../../store/types';
 // import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
@@ -29,58 +29,61 @@ const Login = () => {
                                 <div className="d-flex flex-column">
                                     <p className="mb-2 mb-3 continue">Continue with...</p>
                                     <div className='googleLogin'>
-                                        <GoogleLogin
-                                            text='continue_with'
-                                            shape='square'
-                                            
-                                            onSuccess={(credentialResponse: any) => {
+                                        {/* <GoogleOAuthProvider clientId='349322929062-ukqi0ffks12d1vg6oh08po0edev5n459.apps.googleusercontent.com'> */}
+                                            <GoogleLogin
+                                                text='continue_with'
+                                                shape='square'
 
-                                                console.log(credentialResponse.credential);
-                                                if (credentialResponse.credential != null) {
-                                                    axios.get('https://api.geoapify.com/v1/ipinfo?apiKey=d74e417fb77f459daa5e229304c08a0e')
-                                                        .then(async (response: any) => {
-                                                            const country = response.data.country;
-                                                            console.log('User Country:', country);
-                                                            var user: ILoginGoogleUser = {
-                                                                token: credentialResponse.credential,
-                                                                country: country.name,
-                                                                countryCode: country.iso_code
-                                                            }
+                                                onSuccess={(credentialResponse: any) => {
 
-                                                            formHttp.post<ILoginResult>("/auth/loginGoogle", user).then((reg) => {
+                                                    console.log(credentialResponse.credential);
+                                                    if (credentialResponse.credential != null) {
+                                                        axios.get('https://api.geoapify.com/v1/ipinfo?apiKey=d74e417fb77f459daa5e229304c08a0e')
+                                                            .then(async (response: any) => {
+                                                                const country = response.data.country;
+                                                                console.log('User Country:', country);
+                                                                var user: ILoginGoogleUser = {
+                                                                    token: credentialResponse.credential,
+                                                                    country: country.name,
+                                                                    countryCode: country.iso_code
+                                                                }
 
-                                                                localStorage.token = reg.data.token;
+                                                                formHttp.post<ILoginResult>("/auth/loginGoogle", user).then((reg) => {
 
-                                                                http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
-                                                                formHttp.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
-                                                                console.log("return");
-                                                                const user2 = jwtDecode(localStorage.token) as IUser;
-                                                                dispatch({
-                                                                    type: AuthUserActionType.LOGIN_USER, payload: {
-                                                                        id: user2.id,
-                                                                        name: user2.name,
-                                                                        image: user2.image,
-                                                                        email: user2.email
-                                                                    } as IUser
+                                                                    localStorage.token = reg.data.token;
+
+                                                                    http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
+                                                                    formHttp.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
+                                                                    console.log("return");
+                                                                    const user2 = jwtDecode(localStorage.token) as IUser;
+                                                                    dispatch({
+                                                                        type: AuthUserActionType.LOGIN_USER, payload: {
+                                                                            id: user2.id,
+                                                                            name: user2.name,
+                                                                            image: user2.image,
+                                                                            email: user2.email
+                                                                        } as IUser
+                                                                    });
+                                                                    console.log("nav");
+                                                                    navigator("/profile?id=" + user2?.id);
                                                                 });
-                                                                console.log("nav");
-                                                                navigator("/profile?id=" + user2?.id);
+                                                            })
+                                                            .catch((error) => {
+                                                                console.log('Error fetching user country:', error);
                                                             });
-                                                        })
-                                                        .catch((error) => {
-                                                            console.log('Error fetching user country:', error);
-                                                        });
 
-                                                }
+                                                    }
 
-                                            }}
+                                                }}
 
-                                            onError={() => {
-                                                console.log('Login Failed');
-                                            }}
-                                        />
-                                        
-                                      
+                                                onError={() => {
+                                                    console.log('Login Failed');
+                                                }}
+                                            />
+                                        {/* </GoogleOAuthProvider> */}
+
+
+
                                     </div>
 
 

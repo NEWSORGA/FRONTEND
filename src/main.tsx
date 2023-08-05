@@ -7,7 +7,6 @@ import { store } from './store/index.ts';
 import { formHttp, http } from './http.ts';
 import jwtDecode from "jwt-decode";
 import { AuthUserActionType, IUser } from './store/types.ts';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 
 if (localStorage.token) {
   http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
@@ -25,12 +24,9 @@ if (localStorage.token) {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
-    <GoogleOAuthProvider clientId='349322929062-ukqi0ffks12d1vg6oh08po0edev5n459.apps.googleusercontent.com'>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </GoogleOAuthProvider>
-
   </Provider>
 
 )
