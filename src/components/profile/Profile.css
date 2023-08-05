@@ -5,6 +5,7 @@
   min-height: 100vh;
   width: 100%;
   background-size: contain;
+  background-repeat: repeat;
 }
 .ProfileWrapper .ProfileBackground {
   z-index: 2;
