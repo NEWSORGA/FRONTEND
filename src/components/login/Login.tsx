@@ -32,7 +32,7 @@ const Login = () => {
                                         <GoogleLogin
                                             text='continue_with'
                                             shape='square'
-
+                                            
                                             onSuccess={(credentialResponse: any) => {
 
                                                 console.log(credentialResponse.credential);
