@@ -12,7 +12,8 @@ export interface IUser {
     id: string,
     name: string,
     image: string,
-    email: string
+    email: string,
+    bg: string
 }
 
 export interface ILoginResult {

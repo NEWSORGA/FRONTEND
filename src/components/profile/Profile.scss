@@ -1,55 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import '../../constants/variables';
 
 .ProfileWrapper {
     z-index: 1;
     min-height: 100vh;
     width: 100%;
-    background-size:contain;
+    background-size: contain;
     background-repeat: repeat;
+
     .ProfileBackground {
         z-index: 2;
         min-height: 100vh;
-        width: 50%;
+        width: 800px;
         padding-top: 40px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: rgba(16, 18, 21, 0.6);
-        backdrop-filter: blur(10px);
+        background-color: $bg;
+        backdrop-filter: $default-blur;
 
         .profileLine {
             display: grid;
             grid-template-columns: 140px 4fr 2fr;
-            padding: 20px 20px;
-            margin-top: 20px;
+            padding: $outside-padding;
+            margin-top: $outside-padding;
             width: 100%;
 
             .ProfileAvatarBlock {
-
                 flex: 140px;
-
                 .ProfileAvatar {
                     width: 140px;
                     height: 140px;
                     background-repeat: no-repeat;
                     background-size: cover;
-                    border-radius: 10px;
+                    border-radius: $border-radius;
 
                 }
             }
 
 
             .UserDataProfile {
-                margin: 0 20px;
+                margin: 0 $inside-padding;
                 width: 100%;
 
                 .NickNameProfile {
                     a {
                         font-size: 22px;
                         font-weight: 200;
-                        color: #FFFFFF;
+                        color: $main-text;
                     }
 
                 }
@@ -57,17 +55,15 @@
                 .CountryProfile {
                     display: flex;
                     align-items: center;
-
                     a {
                         font-size: 12px;
-                        color: #dededf;
+                        color: $second-text;
                         margin-left: 3px;
                     }
                 }
 
                 .flag {
                     height: 12px;
-
                 }
 
                 .StatusProfile {
@@ -76,7 +72,7 @@
                     a {
                         font-size: 16px;
                         font-family: 'Dancing Script', cursive;
-                        color: #c5c4c4 !important;
+                        color: $second-text !important;
                     }
                 }
             }
@@ -88,8 +84,8 @@
                 width: 100%;
 
                 .folBtn {
-                    padding: 5px 20px;
-                    border-radius: 20px;
+                    padding: 5px $outside-padding;
+                    border-radius: $btn-border-radius;
                     transition: 0.3s;
                     border: 0;
                     width: 100px;
@@ -97,28 +93,28 @@
 
                 .followed {
                     background-color: transparent;
-                    color: #D74840;
+                    color: $primary;
                     font-weight: 400;
                     font-size: 14px;
-                    border: 2px solid #D74840;
+                    border: 2px solid $primary;
 
                     &:hover {
-                        background-color: #D74840;
-                        color: #ffffff;
+                        background-color: $primary;
+                        color: $main-text;
                     }
                 }
 
                 .follow {
-                    background-color: #D74840;
-                    color: #ffffff;
+                    background-color: $primary;
+                    color: $main-text;
                     font-weight: 400;
                     font-size: 14px;
-                    border: 2px solid #D74840;
+                    border: 2px solid $primary;
 
                     &:hover {
-                        background-color: #D74840;
-                        color: #ffffff;
-                        filter: drop-shadow(0px 0px 10px rgba(241, 18, 18, 1));
+                        background-color: $primary;
+                        color: $main-text;
+                        filter: drop-shadow(0px 0px 10px $primary);
                     }
                 }
             }
@@ -133,21 +129,23 @@
                 width: 100%;
                 background-color: rgba(16, 18, 21, 0.4);
                 border: 1px solid #fff;
-                border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6),rgba(248, 90, 82, 0.6)) 1;
-                border-left: 0;
-                border-bottom: 0;
-                padding: 20px 0;
+                border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+                
+                padding: 0;
                 min-height: 100vh;
 
                 .createPost {
-                    padding: 0 20px;
+                    padding: 0 0;
+                    border-bottom: 1px solid #fff;
+                    border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+                    
                 }
 
                 .AllPostsProfile {
                     justify-content: center;
                     align-items: center;
                     display: flex;
-                    padding: 10px 20px;
+                    padding: 0;
                 }
             }
 
@@ -158,7 +156,7 @@
 
                 height: 100%;
 
-                padding: 10px 20px;
+                padding: 10px $outside-padding;
 
                 display: flex;
                 flex-direction: column;
@@ -166,7 +164,8 @@
                 justify-content: start;
 
                 .boxRounded {
-                    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5),rgba(51, 47, 47, 0.5)) ;
+                    background-image: $box-bg;
+                    backdrop-filter: $default-blur;
                     width: 100%;
                     margin: 10px 0;
                     border-radius: 5px;
@@ -182,13 +181,13 @@
                         align-items: center;
 
                         .item {
-                            color: #d6d3d3;
+                            color: $second-text;
                             font-size: 14px;
                             font-weight: 100;
                         }
 
                         .count {
-                            color: #b9b7b7;
+                            color: $main-text;
                             font-size: 14px;
                             margin-left: 5px;
                             font-weight: 500;
@@ -197,14 +196,112 @@
                 }
             }
         }
-
-
-
         .loadProfile {
             z-index: 10;
         }
-
-
     }
 
+}
+@media (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .ProfileWrapper {
+
+        .ProfileBackground {
+
+            .profileLine {
+                padding: $mobile-outside-padding;
+                grid-template-columns: 90px 4fr 2fr;
+                .ProfileAvatarBlock {
+                    flex: 90px;
+
+                    .ProfileAvatar {
+                        width: 90px;
+                        height: 90px;
+                    }
+                }
+                .UserDataProfile {
+                    margin: 0 $mobile-outside-padding;
+
+                    .NickNameProfile {
+                        a {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .CountryProfile {
+                        a {
+                            font-size: 10px;
+                            margin-left: 1px;
+                        }
+                    }
+
+                    .flag {
+                        height: 10px;
+                    }
+
+                    .StatusProfile {
+                        a {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+            }
+
+            .contentStatistic {
+
+                display: flex;
+                width: 100%;
+                flex-direction: column-reverse;
+                min-height: fit-content;
+
+                .leftContent {
+                    flex: auto;
+                    padding: 0;
+                    border-right: 0;
+                    border-left: 0;
+                    height: fit-content;
+                    .AllPostsProfile{
+                        padding: 0;
+                    }
+                    .createPost{
+                        padding: 0;
+                        border-bottom: 1px solid #FFF;
+                        border-image: $border-gradient;
+                    }
+                }
+
+                .rightContent {
+                    flex: auto;
+                    height: fit-content;
+                    padding: $mobile-outside-padding;
+                    padding-top: 0;
+                    .statistic{
+                        margin: 0;
+                        .statItem{
+                            .item{
+                                font-size: 12px;
+                            }
+                            .count{
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            .loadProfile {
+                z-index: 10;
+            }
+
+
+        }
+
+    }
 }

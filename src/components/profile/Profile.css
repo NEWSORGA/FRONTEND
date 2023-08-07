@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap");
+/*==================Colors===============*/
+/*==================Sizes===============*/
 .ProfileWrapper {
   z-index: 1;
   min-height: 100vh;
@@ -10,20 +10,20 @@
 .ProfileWrapper .ProfileBackground {
   z-index: 2;
   min-height: 100vh;
-  width: 50%;
+  width: 800px;
   padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(16, 18, 21, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 .ProfileWrapper .ProfileBackground .profileLine {
   display: grid;
   grid-template-columns: 140px 4fr 2fr;
-  padding: 20px 20px;
+  padding: 20px;
   margin-top: 20px;
   width: 100%;
 }
@@ -64,7 +64,7 @@
 .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .StatusProfile a {
   font-size: 16px;
   font-family: "Dancing Script", cursive;
-  color: #c5c4c4 !important;
+  color: #dededf !important;
 }
 .ProfileWrapper .ProfileBackground .profileLine .profileActions {
   display: flex;
@@ -81,26 +81,26 @@
 }
 .ProfileWrapper .ProfileBackground .profileLine .profileActions .followed {
   background-color: transparent;
-  color: #D74840;
+  color: #EB4C42;
   font-weight: 400;
   font-size: 14px;
-  border: 2px solid #D74840;
+  border: 2px solid #EB4C42;
 }
 .ProfileWrapper .ProfileBackground .profileLine .profileActions .followed:hover {
-  background-color: #D74840;
-  color: #ffffff;
+  background-color: #EB4C42;
+  color: #FFFFFF;
 }
 .ProfileWrapper .ProfileBackground .profileLine .profileActions .follow {
-  background-color: #D74840;
-  color: #ffffff;
+  background-color: #EB4C42;
+  color: #FFFFFF;
   font-weight: 400;
   font-size: 14px;
-  border: 2px solid #D74840;
+  border: 2px solid #EB4C42;
 }
 .ProfileWrapper .ProfileBackground .profileLine .profileActions .follow:hover {
-  background-color: #D74840;
-  color: #ffffff;
-  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+  background-color: #EB4C42;
+  color: #FFFFFF;
+  filter: drop-shadow(0px 0px 10px #EB4C42);
 }
 .ProfileWrapper .ProfileBackground .contentStatistic {
   display: flex;
@@ -113,19 +113,20 @@
   border: 1px solid #fff;
   -o-border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
      border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
-  border-left: 0;
-  border-bottom: 0;
-  padding: 20px 0;
+  padding: 0;
   min-height: 100vh;
 }
 .ProfileWrapper .ProfileBackground .contentStatistic .leftContent .createPost {
-  padding: 0 20px;
+  padding: 0 0;
+  border-bottom: 1px solid #fff;
+  -o-border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+     border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
 }
 .ProfileWrapper .ProfileBackground .contentStatistic .leftContent .AllPostsProfile {
   justify-content: center;
   align-items: center;
   display: flex;
-  padding: 10px 20px;
+  padding: 0;
 }
 .ProfileWrapper .ProfileBackground .contentStatistic .rightContent {
   flex: 35%;
@@ -139,7 +140,9 @@
   justify-content: start;
 }
 .ProfileWrapper .ProfileBackground .contentStatistic .rightContent .boxRounded {
-  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 47, 47, 0.5));
+  background-image: linear-gradient(45deg, rgba(16, 18, 21, 0.1), rgba(16, 18, 21, 0.5));
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   width: 100%;
   margin: 10px 0;
   border-radius: 5px;
@@ -153,16 +156,93 @@
   align-items: center;
 }
 .ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem .item {
-  color: #d6d3d3;
+  color: #dededf;
   font-size: 14px;
   font-weight: 100;
 }
 .ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem .count {
-  color: #b9b7b7;
+  color: #FFFFFF;
   font-size: 14px;
   margin-left: 5px;
   font-weight: 500;
 }
 .ProfileWrapper .ProfileBackground .loadProfile {
   z-index: 10;
+}
+
+@media (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine {
+    padding: 15px;
+    grid-template-columns: 90px 4fr 2fr;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .ProfileAvatarBlock {
+    flex: 90px;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .ProfileAvatarBlock .ProfileAvatar {
+    width: 90px;
+    height: 90px;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile {
+    margin: 0 15px;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .NickNameProfile a {
+    font-size: 18px;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .CountryProfile a {
+    font-size: 10px;
+    margin-left: 1px;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .flag {
+    height: 10px;
+  }
+  .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .StatusProfile a {
+    font-size: 16px;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic {
+    display: flex;
+    width: 100%;
+    flex-direction: column-reverse;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .leftContent {
+    flex: auto;
+    padding: 0;
+    border-right: 0;
+    border-left: 0;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .leftContent .AllPostsProfile {
+    padding: 0;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .leftContent .createPost {
+    padding: 0;
+    border-bottom: 1px solid #FFF;
+    -o-border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+       border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .rightContent {
+    flex: auto;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 15px;
+    padding-top: 0;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic {
+    margin: 0;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem .item {
+    font-size: 12px;
+  }
+  .ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem .count {
+    font-size: 13px;
+  }
+  .ProfileWrapper .ProfileBackground .loadProfile {
+    z-index: 10;
+  }
 }/*# sourceMappingURL=Profile.css.map */
