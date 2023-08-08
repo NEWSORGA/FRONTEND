@@ -1,0 +1,235 @@
+.WritePost {
+    width: 100%;
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 47, 47, 0.5));
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    z-index: 5;
+    position: relative;
+
+    form {
+        width: 100%;
+
+        .inputBlock {
+            display: flex;
+            flex: 90%;
+            flex-direction: column;
+
+            .inputPost {
+                background-color: transparent;
+                border: 0;
+                box-shadow: 0;
+                outline: 0;
+                resize: none;
+                height: fit-content;
+                overflow: hidden;
+                width: 100%;
+                color: #fff;
+                font-size: 14px;
+            }
+
+            .images {
+                width: 100%;
+                display: grid;
+                gap: 3px;
+                margin-top: 10px;
+                border-radius: 5px;
+                overflow: hidden;
+                border: 1px solid #31343B;
+
+                .imgUp {
+                    height: 100%;
+
+                    .img-fluid {
+                        object-fit: cover;
+                    }
+                }
+
+            }
+
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                width: 100%;
+
+                .actions {
+                    display: flex;
+                    flex-direction: row;
+
+                    .action {
+                        margin-right: 15px;
+                        display: flex;
+                        justify-content: center;
+
+                    }
+
+                    .inputBtn {
+                        cursor: pointer;
+                        background-color: transparent;
+                        border: 0;
+                        transition: 0.3s;
+
+                        &:hover {
+                            filter: drop-shadow(0px 0px 10px rgba(241, 18, 18, 1));
+                        }
+
+                    }
+
+                    .emojiPicker {
+                        z-index: 5;
+                        overflow: hidden;
+                        position: absolute;
+                        margin-top: 30px;
+                    }
+
+                    .disable {
+                        opacity: 85% !important;
+                        cursor: none;
+
+                        &:hover {}
+                    }
+
+                    button {}
+                }
+
+                .btnProfile {
+                    // background-color: rgba(235, 76, 66, 0.9);
+                    background-image: linear-gradient(45deg, rgb(248, 121, 114), #D74840);
+                    flex: 1fr;
+                    display: block;
+                    border-radius: 20px;
+                    color: #fff;
+                    font-size: 14px;
+                    padding: 4px 20px;
+                    border: 0;
+                    transition: 0.3s;
+                    backdrop-filter: blur(10px);
+
+                    &:hover {
+                        filter: drop-shadow(0px 0px 5px rgba(241, 18, 18, 1));
+                    }
+                }
+            }
+        }
+
+    }
+
+
+}
+
+.modalSchedule {
+    overflow: hidden;
+
+
+    .modal-content {
+        border-radius: 15px;
+        overflow: hidden;
+        background-color: transparent;
+    }
+
+    .btn-close {
+        --bs-btn-close-color: #bb1717 !important;
+        fill: red;
+    }
+
+    .scheduleHeader {
+        background-color: rgba(29, 32, 37, 0.7) !important;
+        backdrop-filter: blur(10px);
+        color: #fff;
+
+        .btn-close {
+            color: #fff !important;
+        }
+    }
+
+    .scheduleBody {
+        background-color: rgba(29, 32, 37, 0.7) !important;
+        backdrop-filter: blur(10px);
+        color: #fff !important;
+
+        .schedule {
+            background-color: transparent;
+            color: #fff !important;
+
+            .MuiSvgIcon-root {
+                color: white;
+            }
+
+            .MuiTypography-root {
+                color: white;
+            }
+
+            .MuiClockPointer-root,
+            .MuiClock-pin,
+            .MuiClockPointer-thumb {
+                background-color: #fc564d;
+            }
+
+            .MuiClockPointer-thumb {
+                border: 16px solid #D74840;
+            }
+
+            .Mui-selected {
+                color: #9c9a9a;
+                color: #D74840;
+
+                .MuiSvgIcon-root {
+                    color: #D74840;
+                }
+            }
+
+            .MuiPickersDay-root.Mui-selected {
+                background-color: #D74840 !important;
+
+            }
+
+            .MuiPickersDay-root {
+                color: #e6e6e6;
+            }
+
+            .Mui-disabled.MuiPickersDay-root {
+                color: #888787;
+            }
+
+            .MuiPickersDay-today {
+                border: 1px solid #6e2b27;
+            }
+
+            .MuiClockNumber-root {
+                color: #e6e6e6;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                font-weight: 200;
+            }
+
+            .MuiPickersYear-yearButton.Mui-selected {
+                background-color: #D74840 !important;
+                color: rgb(235, 233, 233);
+
+            }
+
+            .MuiPickersYear-yearButton {
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: rgb(22, 22, 22) !important;
+                }
+            }
+
+            .MuiTabs-indicator {
+                background-color: #D74840;
+            }
+
+            .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+                background-color: #D74840;
+                border-radius: 15px;
+                margin-right: 10px;
+                color: #fff;
+                font-weight: bold;
+                padding: 3px 20px;
+            }
+        }
+    }
+}

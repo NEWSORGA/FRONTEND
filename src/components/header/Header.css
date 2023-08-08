@@ -1,4 +1,3 @@
-/* Header.css */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
 
@@ -10,12 +9,17 @@
     left: 50%;
     transform: translateX(-50%);
     top: 5px; /* Add top position to create some space from the top */
-    background-color: #252525;
+    background-color: rgba(16, 18, 21, 0.6);
+    backdrop-filter: blur(10px);
     border: 1px solid #dddd;
     border-radius: 15px;
     box-shadow: rgba(216, 216, 216, 0.24) 0px 3px 8px;
+    padding: 10px;
 }
-
+.avatar{
+  border-radius: 50%;
+  width: 38px;
+}
 .row {
     height: 100%;
 }
@@ -62,7 +66,7 @@ i {
 }
 
 .SearchHeader .form-control {
-    background-color: #252525;
+    background-color: #121315;
     color: white;
 }
 
@@ -75,7 +79,6 @@ i {
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-left: 5px;
 }
 
 .brand {

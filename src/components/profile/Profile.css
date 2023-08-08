@@ -1,53 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap");
 .ProfileWrapper {
-    z-index: 1;
-    min-height: 100vh;
-    width: 100%;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  background-size: contain;
+  background-repeat: repeat;
 }
-
-.ProfileBackground {
-    z-index: 2;
-    min-height: 100vh;
-    width: 50%;
-    padding-top: 60px;
+.ProfileWrapper .ProfileBackground {
+  z-index: 2;
+  min-height: 100vh;
+  width: 50%;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(16, 18, 21, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
-
-.ProfileAvatar {
-    margin: 1rem;
-    width: 90%;
-    height: 90%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 18px;
-    box-shadow: rgba(241, 239, 239, 0.80) 0px 3px 8px;
+.ProfileWrapper .ProfileBackground .profileLine {
+  display: grid;
+  grid-template-columns: 140px 4fr 2fr;
+  padding: 20px 20px;
+  margin-top: 20px;
+  width: 100%;
 }
-
-.NickNameProfile a {
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 30px;
-    font-weight: 200;
+.ProfileWrapper .ProfileBackground .profileLine .ProfileAvatarBlock {
+  flex: 140px;
 }
-
-.StatusProfile a {
-    font-size: 20px;
-    font-family: 'Dancing Script', cursive;
+.ProfileWrapper .ProfileBackground .profileLine .ProfileAvatarBlock .ProfileAvatar {
+  width: 140px;
+  height: 140px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
 }
-
-textarea {
-    resize: none; 
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile {
+  margin: 0 20px;
+  width: 100%;
 }
-.profileTextArea{
-    height: 100px;
-    color: white;
-    background-color: #202020; 
-    width: 90%;
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .NickNameProfile a {
+  font-size: 22px;
+  font-weight: 200;
+  color: #FFFFFF;
 }
-.WritePost{
-    width: 100%;
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .CountryProfile {
+  display: flex;
+  align-items: center;
 }
-.btnProfile{
-    background-color: rgb(155, 34, 34);
-    margin-top: 1rem;
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .CountryProfile a {
+  font-size: 12px;
+  color: #dededf;
+  margin-left: 3px;
 }
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .flag {
+  height: 12px;
+}
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .StatusProfile {
+  margin-top: 5px;
+}
+.ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .StatusProfile a {
+  font-size: 16px;
+  font-family: "Dancing Script", cursive;
+  color: #c5c4c4 !important;
+}
+.ProfileWrapper .ProfileBackground .profileLine .profileActions {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+.ProfileWrapper .ProfileBackground .profileLine .profileActions .folBtn {
+  padding: 5px 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+  border: 0;
+  width: 100px;
+}
+.ProfileWrapper .ProfileBackground .profileLine .profileActions .followed {
+  background-color: transparent;
+  color: #D74840;
+  font-weight: 400;
+  font-size: 14px;
+  border: 2px solid #D74840;
+}
+.ProfileWrapper .ProfileBackground .profileLine .profileActions .followed:hover {
+  background-color: #D74840;
+  color: #ffffff;
+}
+.ProfileWrapper .ProfileBackground .profileLine .profileActions .follow {
+  background-color: #D74840;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  border: 2px solid #D74840;
+}
+.ProfileWrapper .ProfileBackground .profileLine .profileActions .follow:hover {
+  background-color: #D74840;
+  color: #ffffff;
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.ProfileWrapper .ProfileBackground .contentStatistic {
+  display: flex;
+  width: 100%;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .leftContent {
+  flex: 65%;
+  width: 100%;
+  background-color: rgba(16, 18, 21, 0.4);
+  border: 1px solid #fff;
+  -o-border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+     border-image: linear-gradient(45deg, rgba(230, 60, 54, 0.6), rgba(248, 90, 82, 0.6)) 1;
+  border-left: 0;
+  border-bottom: 0;
+  padding: 20px 0;
+  min-height: 100vh;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .leftContent .createPost {
+  padding: 0 20px;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .leftContent .AllPostsProfile {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 10px 20px;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .rightContent {
+  flex: 35%;
+  width: 100%;
+  animation: pulsate 1.5s infinite alternate;
+  height: 100%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .rightContent .boxRounded {
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 47, 47, 0.5));
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem .item {
+  color: #d6d3d3;
+  font-size: 14px;
+  font-weight: 100;
+}
+.ProfileWrapper .ProfileBackground .contentStatistic .rightContent .statistic .statItem .count {
+  color: #b9b7b7;
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: 500;
+}
+.ProfileWrapper .ProfileBackground .loadProfile {
+  z-index: 10;
+}/*# sourceMappingURL=Profile.css.map */

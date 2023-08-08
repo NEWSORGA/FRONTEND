@@ -1,7 +1,7 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import DefaultLayout from './components/default/Default-Layout';
-import Register from './components/register/Register';
+// import Register from './components/register/Register';
 import Login from './components/login/Login';
 import MainPage from './components/main-page/Main';
 import Profile from './components/profile/Profile';
@@ -13,10 +13,10 @@ function App() {
       <Routes>
         <Route index element={<MainPage></MainPage>} />
         <Route path="/" element={<DefaultLayout></DefaultLayout>}>
-          <Route path='profile/:slug' element={<Profile></Profile>} />
+          <Route path='profile' element={<Profile></Profile>} />
         </Route> 
         <Route path="/" element={<AuthLayout></AuthLayout>}>
-          <Route path='/register' element={<Register></Register>} />
+          {/* <Route path='/register' element={<Register></Register>} /> */}
           <Route path='/login' element={<Login></Login>} />
         </Route>
       </Routes>

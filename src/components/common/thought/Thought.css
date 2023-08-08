@@ -1,10 +1,194 @@
-.ThoughtWrapper{
-    background-color: #252525;
-    height: 200px;
-    width: 100vh;
+* {
+  text-decoration: none !important;
 }
-.ThoughtText{
-    width: 100%;
-    margin: 1rem;
-    height: 100%;
+
+.ThoughtWrapper {
+  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 47, 47, 0.5));
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
+.ThoughtWrapper .ThoughtText {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: 200;
+}
+.ThoughtWrapper .ThoughtHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.ThoughtWrapper .ThoughtHeader .DataUserThought {
+  display: flex;
+}
+.ThoughtWrapper .ThoughtHeader .DataUserThought img {
+  width: 36px;
+  height: 36px;
+}
+.ThoughtWrapper .ThoughtHeader .DataUserThought .nickAndTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-left: 5px;
+}
+.ThoughtWrapper .ThoughtHeader .DataUserThought .nickAndTime .NickThought {
+  color: #FFFFFF;
+  font-size: 13px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+.ThoughtWrapper .ThoughtHeader .DataUserThought .nickAndTime .NickThought:hover {
+  color: #b6b6b6;
+}
+.ThoughtWrapper .ThoughtHeader .DataUserThought .nickAndTime .time {
+  color: #9E9696;
+  font-size: 11px;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu {
+  position: relative;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .menuBtn {
+  background-color: transparent;
+  border: 0;
+  transition: 0.8s;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .menuBtn:hover {
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .menuBtn:hover path {
+  transition: 0.3s;
+  fill: #DB4F47;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .dropdownMenu {
+  transition: 0.8s;
+  opacity: 0s;
+  border-radius: 10px;
+  background-color: rgba(29, 32, 37, 0.6) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid #31343B;
+  z-index: 5;
+  color: red;
+  width: 200px;
+  position: absolute;
+  right: 0px;
+  overflow: hidden;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .dropdownMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .dropdownMenu ul li {
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.ThoughtWrapper .ThoughtHeader .ThoughtMenu .dropdownMenu ul li:hover {
+  background-color: rgba(47, 52, 59, 0.6) !important;
+}
+.ThoughtWrapper .images {
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #31343B;
+  max-height: 450px;
+}
+.ThoughtWrapper .images .imgUp {
+  height: 100%;
+}
+.ThoughtWrapper .images .imgUp .img-fluid {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ThoughtWrapper .actions {
+  display: flex;
+  margin-top: 10px;
+}
+.ThoughtWrapper .actions .actionBlock {
+  margin-right: 15px;
+}
+.ThoughtWrapper .actions .actionBlock .action {
+  height: 14px;
+}
+.ThoughtWrapper .actions .actionBlock .action:hover {
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.ThoughtWrapper .actions .actionBlock .actionBtn {
+  background-color: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+}
+.ThoughtWrapper .actions .actionBlock .actionCount {
+  display: block;
+  color: #3E444F;
+  font-size: 14px;
+  margin-left: 5px;
+  width: 20px !important;
+  text-align: start;
+}
+
+.modal-header {
+  border-bottom: 0 none;
+}
+
+.confirmDelete {
+  overflow: hidden;
+  background-color: transparent;
+}
+.confirmDelete .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: transparent;
+}
+.confirmDelete .confirmDeleteBody {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 20px;
+}
+.confirmDelete .confirmDeleteBody .title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.confirmDelete .confirmDeleteBody .description {
+  font-size: 12px;
+  color: #dad7d7;
+}
+.confirmDelete .confirmDeleteBody .ModalButtons {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin-top: 10px;
+}
+.confirmDelete .confirmDeleteBody .ModalButtons .btnModal {
+  margin-right: 10px;
+  background-image: linear-gradient(45deg, rgb(248, 121, 114), #D74840);
+  flex: 1fr;
+  display: block;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 20px;
+  border: 0;
+  transition: 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.confirmDelete .confirmDeleteBody .ModalButtons .btnModal:hover {
+  filter: drop-shadow(0px 0px 5px rgb(241, 18, 18));
+}/*# sourceMappingURL=Thought.css.map */
