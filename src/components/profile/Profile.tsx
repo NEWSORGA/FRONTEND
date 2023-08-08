@@ -21,7 +21,7 @@ const Profile = () => {
                                     <a>NickName</a>
                                 </div>
                                 <div className="CountryProfile">
-                                    <span className="fi fi-us"></span>
+                                    <span className="fi fi-gr"></span>
                                     <a> USA</a>
                                 </div>
                                 <div className="StatusProfile mt-3 w-50">
