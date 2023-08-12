@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleLogin } from '@react-oauth/google';
 import { AuthUserActionType, ILoginGoogleUser, ILoginResult, IUser } from '../../store/types';
 // import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
