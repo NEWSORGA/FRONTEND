@@ -8,7 +8,7 @@ import { Modal } from 'react-bootstrap';
 import { IAuthUser } from '../../../store/types';
 import { useSelector } from 'react-redux';
 
-const Thought = ({ tweet, loadPosts }: { tweet: ITweetView, loadPosts:any }) => {
+const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:any, details:boolean }) => {
     const [liked, setLike] = useState<boolean>();
     const [likesCount, setLikesCount] = useState<number>();
     const [gridColumns, setGridColumns] = useState<string>();
@@ -97,19 +97,40 @@ const Thought = ({ tweet, loadPosts }: { tweet: ITweetView, loadPosts:any }) => 
         });
     }
 
+    const isSeparator = (value: string): boolean => value === '/' || value === '\\' || value === ':';
+
+    const getExtension = (path: string): string => {
+        for (let i = path.length - 1; i > -1; --i) {
+            const value = path[i];
+            if (value === '.') {
+                if (i > 1) {
+                    if (isSeparator(path[i - 1])) {
+                        return '';
+                    }
+                    return path.substring(i + 1);
+                }
+                return '';
+            }
+            if (isSeparator(value)) {
+                return '';
+            }
+        }
+        return '';
+    };
+
     return (
 
         <>
 
-            <div className="ThoughtWrapper">
+            <div className={details ? "ThoughtWrapper detailsWrapper" : "ThoughtWrapper"} >
                 <div className='ThoughtHeader'>
                     <div className="DataUserThought">
-                        <Link to={`/profile?id=${tweet?.user.id}`}>
+                        <Link to={`/profile/${tweet?.user.id}`}>
                             <img src={`${APP_ENV.BASE_URL + "/images/" + tweet?.user.image}`} className="rounded-circle" />
                         </Link>
 
                         <div className='nickAndTime'>
-                            <Link to={`/profile?id=${tweet?.user.id}`} className="NickThought">{tweet?.user.name}</Link>
+                            <Link to={`/profile/${tweet?.user.id}`} className="NickThought">{tweet?.user.name}</Link>
 
                             <span className='time'>{tweet?.createdAtStr}</span>
                         </div>
@@ -147,18 +168,29 @@ const Thought = ({ tweet, loadPosts }: { tweet: ITweetView, loadPosts:any }) => 
                 <div className="ThoughtText">
                     {tweet?.tweetText}
                 </div>
-                <div className='images' style={{ gridTemplateColumns: gridColumns, gridTemplateRows: gridRows }}>
+                <div className={details ? "images details" : "images"} style={{ gridTemplateColumns: gridColumns, gridTemplateRows: gridRows }}>
 
                     {tweet.medias.map((img, i) => (
                         <div key={img.id} className="col position-relative" style={i == 0 && tweet.medias.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                             <div className="imgUp">
-                                <img
-                                    src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
-                                    className="img-fluid"
-                                    alt="Зображення"
-                                    style={{ height: '100%', width: '100%', overflow: 'hidden' }}
-                                />
-                            </div>
+                                    {getExtension(img.path) == "gif"
+                                        ?
+                                        <img
+                                            src={`${APP_ENV.BASE_URL}/images/` + img.path}
+                                            className="img-fluid"
+                                            alt="Зображення"
+                                            style={{ height: '100%', width: '100%', overflow: 'hidden' }}
+                                        />
+                                        :
+                                        <img
+                                            src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                            className="img-fluid"
+                                            alt="Зображення"
+                                            style={{ height: '100%', width: '100%', overflow: 'hidden' }}
+                                        />
+                                    }
+
+                                </div>
                         </div>
                     ))}
                 </div>

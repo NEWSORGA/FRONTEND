@@ -3,15 +3,14 @@ import './Profile.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Thought from '../common/thought/Thought';
 import { useEffect, useState, } from 'react';
-import { useSearchParams, } from 'react-router-dom';
+import { useParams, useSearchParams, } from 'react-router-dom';
 import { ITweetView, IUserView } from './types';
 import { http } from '../../http';
 import { APP_ENV } from '../../env';
 import { useSelector } from "react-redux";
 import { IAuthUser } from '../../store/types';
 import { MutatingDots } from 'react-loader-spinner';
-import { CreatePost } from '../common/createPost/CreatePost';
-
+import { CreatePost } from '../common/createPost/CreatePost';r
 const Profile = () => {
     const [userPage, setUser] = useState<IUserView>();
     const [posts, setPosts] = useState<ITweetView[]>([]);
@@ -20,7 +19,7 @@ const Profile = () => {
     const [loadingProfile, setLoadProfile] = useState<boolean>();
     const [loadingPosts, setLoadPosts] = useState<boolean>();
     const [followed, setFollowed] = useState<boolean>();
-
+    const { id } = useParams();
     useEffect(() => {
         loadProfile();
         loadPosts();
@@ -28,7 +27,6 @@ const Profile = () => {
     }, [])
 
     const loadPosts = () => {
-        var id = searchParams.get("id");
         setLoadPosts(true);
 
         var urlPost = "";
@@ -46,7 +44,6 @@ const Profile = () => {
     }
 
     const loadProfile = () => {
-        var id = searchParams.get("id");
         setLoadProfile(true);
         let url = "";
         if (isAuth)
@@ -163,7 +160,7 @@ const Profile = () => {
                                         :
                                         posts.map(p => {
                                             return (
-                                                <Thought key={p.id} tweet={p} loadPosts={loadPosts} />
+                                                <Thought key={p.id} tweet={p} loadPosts={loadPosts} details={false}/>
                                             )
                                         })
                                     }

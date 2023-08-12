@@ -56,16 +56,18 @@ const Login = () => {
                                                                     formHttp.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
                                                                     console.log("return");
                                                                     const user2 = jwtDecode(localStorage.token) as IUser;
+                                                                    console.log(user2);
                                                                     dispatch({
                                                                         type: AuthUserActionType.LOGIN_USER, payload: {
                                                                             id: user2.id,
                                                                             name: user2.name,
                                                                             image: user2.image,
-                                                                            email: user2.email
+                                                                            email: user2.email,
+                                                                            bg: user2.bg
                                                                         } as IUser
                                                                     });
                                                                     console.log("nav");
-                                                                    navigator("/profile?id=" + user2?.id);
+                                                                    navigator("/profile/" + user2?.id);
                                                                 });
                                                             })
                                                             .catch((error) => {

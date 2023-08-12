@@ -17,7 +17,8 @@ if (localStorage.token) {
     type: AuthUserActionType.LOGIN_USER, payload: {
       id: user.id,
       name: user.name,
-      image: user.image
+      image: user.image,
+      bg: user.bg
     } as IUser
   });
 }

@@ -6,6 +6,7 @@ import Login from './components/login/Login';
 import MainPage from './components/main-page/Main';
 import Profile from './components/profile/Profile';
 import AuthLayout from './components/auth-layout/Auth-Layout';
+import { ThoughtDetails } from './components/thoughtDetails/ThoughtDetails';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Routes>
         <Route index element={<MainPage></MainPage>} />
         <Route path="/" element={<DefaultLayout></DefaultLayout>}>
-          <Route path='profile' element={<Profile></Profile>} />
+          <Route path='profile/:id' element={<Profile></Profile>} />
+          <Route path='thought/:id' element={<ThoughtDetails/>} />
         </Route> 
         <Route path="/" element={<AuthLayout></AuthLayout>}>
           {/* <Route path='/register' element={<Register></Register>} /> */}

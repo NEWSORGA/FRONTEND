@@ -1,6 +1,9 @@
+@import '../../../constants/variables';
+
 .WritePost {
     width: 100%;
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(51, 47, 47, 0.5));
+    background-image: $box-bg;
+    // backdrop-filter: $default-blur;
     border-radius: 5px;
     padding: 15px;
     display: flex;
@@ -36,7 +39,7 @@
                 border-radius: 5px;
                 overflow: hidden;
                 border: 1px solid #31343B;
-
+                max-height: 400px;
                 .imgUp {
                     height: 100%;
 
@@ -231,5 +234,15 @@
                 padding: 3px 20px;
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .WritePost{
+        border-radius: 0;
     }
 }

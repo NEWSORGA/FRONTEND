@@ -136,12 +136,13 @@ export const CreatePost = (props: any) => {
 
 
     const onChangeImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log(disableImages);
         if (!disableImages) {
             const files = e.target.files;
             if (files) {
                 console.log("files");
                 const file = files[0];
-                const allowTypes = ["image/jpeg", "image/png", "image/jpg"];
+                const allowTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
                 if (!allowTypes.includes(file.type)) {
                     alert("Невірний формат файлу");
                     return;
@@ -184,6 +185,26 @@ export const CreatePost = (props: any) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const isSeparator = (value: string): boolean => value === '/' || value === '\\' || value === ':';
+
+    const getExtension = (path: string): string => {
+        for (let i = path.length - 1; i > -1; --i) {
+            const value = path[i];
+            if (value === '.') {
+                if (i > 1) {
+                    if (isSeparator(path[i - 1])) {
+                        return '';
+                    }
+                    return path.substring(i + 1);
+                }
+                return '';
+            }
+            if (isSeparator(value)) {
+                return '';
+            }
+        }
+        return '';
+    };
 
     return (
         <div className="WritePost">
@@ -195,12 +216,23 @@ export const CreatePost = (props: any) => {
                         {images.map((img, i) => (
                             <div key={img.id} className="col position-relative" style={i == 0 && images.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                                 <div className="imgUp">
-                                    <img
-                                        src={images.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
-                                        className="img-fluid"
-                                        alt="Зображення"
-                                        style={{ height: '100%', width: '100%', overflow: 'hidden' }}
-                                    />
+                                    {getExtension(img.path) == "gif"
+                                        ?
+                                        <img
+                                            src={`${APP_ENV.BASE_URL}/images/` + img.path}
+                                            className="img-fluid"
+                                            alt="Зображення"
+                                            style={{ height: '100%', width: '100%', overflow: 'hidden' }}
+                                        />
+                                        :
+                                        <img
+                                            src={images.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                            className="img-fluid"
+                                            alt="Зображення"
+                                            style={{ height: '100%', width: '100%', overflow: 'hidden' }}
+                                        />
+                                    }
+
                                 </div>
 
                             </div>
@@ -227,11 +259,11 @@ export const CreatePost = (props: any) => {
                                         </g>
                                     </svg>
                                 </label>
-                                <input id="file-input" onChange={onChangeImageHandler} style={{ display: 'none' }} height={0} width={0} type="file" disabled={disableImages} />
+                                <input id="file-input" accept="image/png, image/gif, image/jpeg" onChange={onChangeImageHandler} style={{ display: 'none' }} height={0} width={0} type="file" disabled={disableImages} />
                             </div>
 
                             <div className="datetime action">
-                                <button type='button' className='inputBtn'  onClick={handleShow} >
+                                <button type='button' className='inputBtn' onClick={handleShow} >
                                     <svg xmlns="http://www.w3.org/2000/svg" height={16} width={16} version="1.1" id="_x32_" viewBox="0 0 512 512">
                                         <g fill='#EB4C42'>
                                             <rect x="119.256" y="222.607" className="st0" width="50.881" height="50.885" />
