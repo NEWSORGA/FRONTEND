@@ -8,7 +8,11 @@ import { Modal } from 'react-bootstrap';
 import { IAuthUser } from '../../../store/types';
 import { useSelector } from 'react-redux';
 
-const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:any, details:boolean }) => {
+import { CommentViewModel } from '../../comments/show/types';
+import CommentModel from '../../comments/show/CommentModel';
+import { maxHeight } from '@mui/system';
+
+const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: any, details: boolean }) => {
     const [liked, setLike] = useState<boolean>();
     const [likesCount, setLikesCount] = useState<number>();
     const [gridColumns, setGridColumns] = useState<string>();
@@ -91,7 +95,7 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:a
 
     const deletePost = () => {
         http.delete("/tweets/" + tweet?.id).then((res) => {
-            if(res.data == "Deleted"){
+            if (res.data == "Deleted") {
                 loadPosts();
             }
         });
@@ -117,6 +121,14 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:a
         }
         return '';
     };
+
+    // const myComment : CommentViewModel = {
+    //     CommentText: 'Крутий пост',
+    //     UserId: 2,
+    //     CreatedAt: "02.03.2021",
+    //     ParentId: undefined,
+    //     medias: [{path: "ro53sdyu.r0t.jpg", id: 3},{path:"vevdo44l.mwu.png", id:1},{path:"vevdo44l.mwu.png", id:1},{path:"vevdo44l.mwu.png", id:1}],
+    // };
 
     return (
 
@@ -147,7 +159,7 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:a
                         <div className='dropdownMenu' ref={container} style={{ display: thoughtMenu ? "block" : "none", opacity: thoughtMenu ? "100%" : "0%" }}>
                             <ul>
                                 {user?.id != undefined && tweet.user.id == parseInt(user?.id) ? <li onClick={handleShow}>Delete</li> : null}
-                                
+
                             </ul>
                         </div>
                         <Modal show={show} centered className='confirmDelete' onHide={handleClose} >
@@ -173,24 +185,24 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:a
                     {tweet.medias.map((img, i) => (
                         <div key={img.id} className="col position-relative" style={i == 0 && tweet.medias.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                             <div className="imgUp">
-                                    {getExtension(img.path) == "gif"
-                                        ?
-                                        <img
-                                            src={`${APP_ENV.BASE_URL}/images/` + img.path}
-                                            className="img-fluid"
-                                            alt="Зображення"
-                                            style={{ height: '100%', width: '100%', overflow: 'hidden' }}
-                                        />
-                                        :
-                                        <img
-                                            src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
-                                            className="img-fluid"
-                                            alt="Зображення"
-                                            style={{ height: '100%', width: '100%', overflow: 'hidden' }}
-                                        />
-                                    }
+                                {getExtension(img.path) == "gif"
+                                    ?
+                                    <img
+                                        src={`${APP_ENV.BASE_URL}/images/` + img.path}
+                                        className="img-fluid"
+                                        alt="Зображення"
+                                        style={{ height: '100%', width: '100%', overflow: 'hidden' }}
+                                    />
+                                    :
+                                    <img
+                                        src={tweet.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                        className="img-fluid"
+                                        alt="Зображення"
+                                        style={{ height: '100%', width: '100%', overflow: 'hidden' }}
+                                    />
+                                }
 
-                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -239,6 +251,9 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts:a
                     </div>
                 </div>
             </div>
+            {/* <div>
+                <CommentModel comment={myComment} ></CommentModel>
+            </div> */}
         </>
     );
 };

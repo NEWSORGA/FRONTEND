@@ -10,7 +10,7 @@ import { APP_ENV } from '../../env';
 import { useSelector } from "react-redux";
 import { IAuthUser } from '../../store/types';
 import { MutatingDots } from 'react-loader-spinner';
-import { CreatePost } from '../common/createPost/CreatePost';r
+import { CreatePost } from '../common/createPost/CreatePost';
 const Profile = () => {
     const [userPage, setUser] = useState<IUserView>();
     const [posts, setPosts] = useState<ITweetView[]>([]);

@@ -1,0 +1,80 @@
+.CommentWrapper {
+    background-image: linear-gradient(45deg, rgba(92, 92, 92, 0.1), rgba(157, 157, 157, 0.5));
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(59, 59, 59);
+}
+
+.CommentAnswer {
+    margin-left: 30px;
+}
+.CommentAnswerText {
+    margin-left: 60px;
+}
+.StandartmarginForText {
+    margin-left: 3px;
+}
+
+.CommentWrapper .CommentText {
+    width: 100%;
+    
+    font-size: 10px;
+    color: #ffffff;
+    font-weight: 200;
+}
+
+.CommentWrapper .CommentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.CommentWrapper .CommentHeader .DataUserComment {
+    display: flex;
+}
+.CommentWrapper .CommentHeader .DataUserComment img {
+    width: 26px;
+    height: 26px;
+}
+.CommentWrapper .CommentHeader .DataUserComment .nickAndTime {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 5px;
+}
+.CommentWrapper .CommentHeader .DataUserComment .nickAndTime .NickComment {
+    color: #dadada;
+    font-size: 8px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+.CommentWrapper .CommentHeader .DataUserComment .nickAndTime .NickComment:hover {
+    color: #b6b6b6;
+}
+.CommentWrapper .CommentHeader .DataUserComment .nickAndTime .time {
+    color: #9e9696;
+    font-size: 7px;
+}
+.images {
+    width: 100%;
+    display: grid;
+    gap: 3px;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #31343b;
+    max-height: 400px;
+}
+.images .imgUp {
+    height: 100%;
+}
+.images .imgUp .img-fluid {
+    -o-object-fit: cover;
+    object-fit: cover;
+}
