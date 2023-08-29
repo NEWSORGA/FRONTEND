@@ -1,0 +1,204 @@
+/*==================Colors===============*/
+/*==================Sizes===============*/
+.WritePost {
+  width: 100%;
+  background-color: rgba(21, 17, 16, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  z-index: 5;
+  position: relative;
+}
+.WritePost form {
+  width: 100%;
+}
+.WritePost form .inputBlock {
+  display: flex;
+  flex: 90%;
+  flex-direction: column;
+}
+.WritePost form .inputBlock .inputPost {
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0;
+  outline: 0;
+  resize: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+}
+.WritePost form .inputBlock .images {
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #31343B;
+  max-height: 400px;
+}
+.WritePost form .inputBlock .images .imgUp {
+  height: 100%;
+}
+.WritePost form .inputBlock .images .imgUp .img-fluid {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.WritePost form .inputBlock .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+.WritePost form .inputBlock .buttons .actions {
+  display: flex;
+  flex-direction: row;
+}
+.WritePost form .inputBlock .buttons .actions .action {
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+}
+.WritePost form .inputBlock .buttons .actions .inputBtn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  transition: 0.3s;
+}
+.WritePost form .inputBlock .buttons .actions .inputBtn:hover {
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.WritePost form .inputBlock .buttons .actions .emojiPicker {
+  z-index: 5;
+  overflow: hidden;
+  position: absolute;
+  margin-top: 30px;
+}
+.WritePost form .inputBlock .buttons .actions .disable {
+  opacity: 85% !important;
+  cursor: none;
+}
+.WritePost form .inputBlock .buttons .btnProfile {
+  background-image: linear-gradient(45deg, rgb(248, 121, 114), #D74840);
+  flex: 1fr;
+  display: block;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 20px;
+  border: 0;
+  transition: 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.WritePost form .inputBlock .buttons .btnProfile:hover {
+  filter: drop-shadow(0px 0px 5px rgb(241, 18, 18));
+}
+
+.modalSchedule {
+  overflow: hidden;
+}
+.modalSchedule .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: transparent;
+}
+.modalSchedule .btn-close {
+  --bs-btn-close-color: #bb1717 !important;
+  fill: red;
+}
+.modalSchedule .scheduleHeader {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff;
+}
+.modalSchedule .scheduleHeader .btn-close {
+  color: #fff !important;
+}
+.modalSchedule .scheduleBody {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff !important;
+}
+.modalSchedule .scheduleBody .schedule {
+  background-color: transparent;
+  color: #fff !important;
+}
+.modalSchedule .scheduleBody .schedule .MuiSvgIcon-root {
+  color: white;
+}
+.modalSchedule .scheduleBody .schedule .MuiTypography-root {
+  color: white;
+}
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-root,
+.modalSchedule .scheduleBody .schedule .MuiClock-pin,
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {
+  background-color: #fc564d;
+}
+.modalSchedule .scheduleBody .schedule .MuiClockPointer-thumb {
+  border: 16px solid #D74840;
+}
+.modalSchedule .scheduleBody .schedule .Mui-selected {
+  color: #9c9a9a;
+  color: #D74840;
+}
+.modalSchedule .scheduleBody .schedule .Mui-selected .MuiSvgIcon-root {
+  color: #D74840;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersDay-root.Mui-selected {
+  background-color: #D74840 !important;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersDay-root {
+  color: #e6e6e6;
+}
+.modalSchedule .scheduleBody .schedule .Mui-disabled.MuiPickersDay-root {
+  color: #888787;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersDay-today {
+  border: 1px solid #6e2b27;
+}
+.modalSchedule .scheduleBody .schedule .MuiClockNumber-root {
+  color: #e6e6e6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersYear-yearButton.Mui-selected {
+  background-color: #D74840 !important;
+  color: rgb(235, 233, 233);
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersYear-yearButton {
+  transition: 0.3s;
+}
+.modalSchedule .scheduleBody .schedule .MuiPickersYear-yearButton:hover {
+  background-color: rgb(22, 22, 22) !important;
+}
+.modalSchedule .scheduleBody .schedule .MuiTabs-indicator {
+  background-color: #D74840;
+}
+.modalSchedule .scheduleBody .schedule .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  background-color: #D74840;
+  border-radius: 15px;
+  margin-right: 10px;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 20px;
+}
+
+@media (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .WritePost {
+    border-radius: 0;
+  }
+}/*# sourceMappingURL=CreateComment.css.map */

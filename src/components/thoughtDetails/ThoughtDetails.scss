@@ -7,17 +7,17 @@
 
 .TDetailsWrapper {
     z-index: 1;
-    min-height: 100vh;
+    min-height: 100vh !important;
     width: 100%;
     background-size: cover;
     background-repeat: repeat;
     .TDetailsBackground {
         z-index: 2;
-        min-height: 100vh;
+        min-height: 100vh !important;
         width: 800px;
         padding-top: 60px;
 
-        background-color: $box-bg;
+        background-color: rgba(16, 18, 21, 0.6);
         backdrop-filter: $default-blur;
         .ThoughtWrapper{
             margin: 0;
