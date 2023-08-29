@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { CommentProps, IUserViewComment } from './types';
+import  { useEffect, useState } from 'react';
+import { CommentsGetViewModel, IUserViewComment } from './types';
 import { http } from '../../../http';
 import { APP_ENV } from '../../../env';
 import { Link } from 'react-router-dom';
 
 import './Comments.css';
 
-const CommentModel: React.FC<CommentProps> = ({ comment }) => {
+const CommentModel = ({ comment }: { comment: CommentsGetViewModel }) => {
 
     const [user, setUser] = useState<IUserViewComment>();
 
@@ -17,12 +17,9 @@ const CommentModel: React.FC<CommentProps> = ({ comment }) => {
     const [gridColumns, setGridColumns] = useState<string>();
     const [gridRows, setGridRows] = useState<string>();
     const loadProfile = () => {
-        let url = "auth/" + comment.UserId;
+        let url = "auth/" + comment.userId;
 
-        http.get<IUserViewComment>(url).then(async (res) => {
-            console.log("User: ", res.data);
-            console.log(APP_ENV.BASE_URL + "/images/" + res.data.image);
-            // await sleep(1000);      
+        http.get<IUserViewComment>(url).then(async (res) => {    
             setUser(res.data);
         });
     }
@@ -46,7 +43,7 @@ const CommentModel: React.FC<CommentProps> = ({ comment }) => {
     };
     const isSeparator = (value: string): boolean => value === '/' || value === '\\' || value === ':';
     const setGrid = () => {
-        switch (comment.medias.length) {
+        switch (comment.images?.length) {
             case 1:
                 setGridColumns("1fr");
                 setGridRows("1fr");
@@ -73,20 +70,20 @@ const CommentModel: React.FC<CommentProps> = ({ comment }) => {
         <div className="comment">
             <div className={"CommentWrapper"} >
                 <div className='CommentHeader'>
-                    <div className={!comment?.ParentId ? "DataUserComment " : "DataUserComment CommentAnswer"}>
+                    <div className={!comment?.commentParentId ? "DataUserComment " : "DataUserComment CommentAnswer"}>
                         <Link to={`/profile/${user?.id}`}>
                             <img src={`${APP_ENV.BASE_URL + "/images/" + user?.image}`} className="rounded-circle" />
                         </Link>
 
                         <div className='nickAndTime'>
-                            <Link to={`/profile/${user?.id}`} className="NickComment">{user?.name} &nbsp; <span className='time'> {comment?.CreatedAt}</span></Link>
-                            <div className={!comment?.ParentId ? "CommentText " : "CommentText "}>
-                                {comment?.CommentText}
+                            <Link to={`/profile/${user?.id}`} className="NickComment">{user?.name} &nbsp; <span className='time'> {comment?.createdAtStr}</span></Link>
+                            <div className={!comment?.commentParentId ? "CommentText " : "CommentText "}>
+                                {comment?.commentText}
                             </div>
                             <div className={"images"} style={{ gridTemplateColumns: gridColumns, gridTemplateRows: gridRows }}>
 
-                                {comment.medias.map((img, i) => (
-                                    <div key={img.id} className="col position-relative" style={i == 0 && comment.medias.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
+                                {comment.images?.map((img, i) => (
+                                    <div key={img.id} className="col position-relative" style={i == 0 && comment.images?.length == 3 ? { gridRowStart: 1, gridRowEnd: 3 } : {}}>
                                         <div className="imgUp">
                                             {getExtension(img.path) == "gif"
                                                 ?
@@ -98,7 +95,7 @@ const CommentModel: React.FC<CommentProps> = ({ comment }) => {
                                                 />
                                                 :
                                                 <img
-                                                    src={comment.medias.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
+                                                    src={comment.images?.length == 1 ? `${APP_ENV.BASE_URL}/images/1280_` + img.path : `${APP_ENV.BASE_URL}/images/600_` + img.path}
                                                     className="img-fluid"
                                                     alt="Зображення"
                                                     style={{ height: '100%', width: '100%', overflow: 'hidden', maxHeight:"100px", maxWidth: "100px"}}
