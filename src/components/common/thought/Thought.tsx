@@ -8,9 +8,8 @@ import { Modal } from 'react-bootstrap';
 import { IAuthUser } from '../../../store/types';
 import { useSelector } from 'react-redux';
 
-import { CommentViewModel } from '../../comments/show/types';
-import CommentModel from '../../comments/show/CommentModel';
-import { maxHeight } from '@mui/system';
+
+import ShowCommentComponent from '../../comments/show/ShowCommentComponent';
 
 const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: any, details: boolean }) => {
     const [liked, setLike] = useState<boolean>();
@@ -24,7 +23,7 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const [showComments, setshowComments] = useState(false);
 
     const handleClickOutside = (event: MouseEvent) => {
         console.log(btn);
@@ -32,6 +31,7 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
             setThoughtMenu(false);
         }
     }
+
 
     useEffect(() => {
         setLike(tweet.liked);
@@ -64,6 +64,9 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
             default:
                 break;
         }
+    }
+    const showCommentsAction = () => {
+        setshowComments(!showComments);
     }
 
 
@@ -125,13 +128,13 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
         return '';
     };
 
-    const myComment: CommentViewModel = {
-        CommentText: 'Крутий пост',
-        UserId: 2,
-        CreatedAt: "02.03.2021",
-        ParentId: undefined,
-        medias: [{ path: "ro53sdyu.r0t.jpg", id: 3 }, { path: "vevdo44l.mwu.png", id: 1 }, { path: "vevdo44l.mwu.png", id: 1 }, { path: "vevdo44l.mwu.png", id: 1 }],
-    };
+    // const myComment : CommentViewModel = {
+    //     CommentText: 'Крутий пост',
+    //     UserId: 2,
+    //     CreatedAt: "02.03.2021",
+    //     ParentId: undefined,
+    //     medias: [{path: "ro53sdyu.r0t.jpg", id: 3},{path:"vevdo44l.mwu.png", id:1},{path:"vevdo44l.mwu.png", id:1},{path:"vevdo44l.mwu.png", id:1}],
+    // };
 
     return (
 
@@ -221,12 +224,12 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
 
 
 
-                                <span className='actionCount' style={{ color: liked ? "#EB4C42" : "#3E444F" }}>{likesCount}</span>
-                            </button>
-                        </div>
-                        <div className='like actionBlock'>
-                            <button className='likeBtn actionBtn'>
-                                <svg className='action' fill="#3E444F" version="1.1" id="Capa_1" viewBox="0 0 32 32">
+                            <span className='actionCount' style={{ color: liked ? "#EB4C42" : "#3E444F" }}>{likesCount}</span>
+                        </button>
+                    </div>
+                    <div className='like actionBlock'>
+                        <button className='likeBtn actionBtn'>
+                            <svg className='action' fill="#3E444F" version="1.1" id="Capa_1" viewBox="0 0 32 32">
 
                                     <title>comment-1</title>
                                     <desc>Created with Sketch Beta.</desc>
@@ -261,5 +264,6 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
 
         </>
     );
+
 };
 export default Thought;
