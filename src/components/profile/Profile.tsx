@@ -3,18 +3,18 @@ import './Profile.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Thought from '../common/thought/Thought';
 import { useEffect, useState, } from 'react';
-import { useParams, useSearchParams, } from 'react-router-dom';
+import { useParams, } from 'react-router-dom';
 import { ITweetView, IUserView } from './types';
 import { http } from '../../http';
 import { APP_ENV } from '../../env';
 import { useSelector } from "react-redux";
 import { IAuthUser } from '../../store/types';
 import { MutatingDots } from 'react-loader-spinner';
-import { CreatePost } from '../common/createPost/CreatePost';r
+import { CreatePost } from '../common/createPost/CreatePost';
 const Profile = () => {
     const [userPage, setUser] = useState<IUserView>();
     const [posts, setPosts] = useState<ITweetView[]>([]);
-    const [searchParams] = useSearchParams();
+    
     const { user, isAuth } = useSelector((store: any) => store.auth as IAuthUser);
     const [loadingProfile, setLoadProfile] = useState<boolean>();
     const [loadingPosts, setLoadPosts] = useState<boolean>();
