@@ -23,7 +23,6 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [showComments, setshowComments] = useState(false);
 
     const handleClickOutside = (event: MouseEvent) => {
         console.log(btn);
