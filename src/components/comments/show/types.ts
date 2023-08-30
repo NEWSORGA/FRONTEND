@@ -9,6 +9,7 @@ export interface ICommentViewModel  {
     thoughtId: number,
     createdAt: string;
     createdAtStr: string;
+    children:ICommentViewModel[]
 };
 
 // Оголошення пропсів для компонента

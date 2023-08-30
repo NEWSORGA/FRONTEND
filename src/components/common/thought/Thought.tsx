@@ -64,10 +64,6 @@ const Thought = ({ tweet, loadPosts, details }: { tweet: ITweetView, loadPosts: 
                 break;
         }
     }
-    const showCommentsAction = () => {
-        setshowComments(!showComments);
-    }
-
 
     const likeTweet = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();

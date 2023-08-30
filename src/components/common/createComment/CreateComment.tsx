@@ -64,7 +64,7 @@ export const CreateComment = (props: any) => {
         commentText: "",
         tweetId: props.tweet.id,
         imagesIds: [],
-        commentParentId: null,
+        commentParentId: 11,
         postTime: null,
         timeZone: "0"
     };
