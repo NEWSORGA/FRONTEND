@@ -86,7 +86,7 @@ export const ThoughtDetails = (props: any) => {
                         :
                         <>
                             <Thought key={thought.id} tweet={thought} loadPosts={loadThought} details={true} />
-                            <CreateComment tweet={thought} loadComments={loadComments}></CreateComment>
+                            <CreateComment thoughtId={thought?.id} loadComments={loadComments}></CreateComment>
                         </>
 
                 }
@@ -110,7 +110,7 @@ export const ThoughtDetails = (props: any) => {
                         //     return <CommentModel comment={item}></CommentModel>
                         // })
                         
-                        <ShowCommentComponent Comments={comments}/>
+                        <ShowCommentComponent Comments={comments} children={false} loadComments={loadComments}/>
                 }
             </div>
         </div>

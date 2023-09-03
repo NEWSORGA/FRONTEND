@@ -7,11 +7,11 @@ import CommentModel from '../component/CommentModel';
 import React from 'react';
 import { ICommentViewModel } from './types';
 
-const ShowCommentComponent = ({ Comments }: { Comments: ICommentViewModel[] | undefined }) => {
+const ShowCommentComponent = ({ Comments, children, loadComments }: { Comments: ICommentViewModel[] | undefined, children:boolean,loadComments:any }) => {
 
 
-    const [endIndex, setEndIndex] = useState(1);
-    const [showChildComments, setShowChildComments] = useState<ShowChildCommentsState>({});
+    const [endIndex, setEndIndex] = useState(3);
+    
 
 
 
@@ -20,30 +20,13 @@ const ShowCommentComponent = ({ Comments }: { Comments: ICommentViewModel[] | un
 
     }, [])
 
-    const toggleShowChildComments = (commentId: any) => {
-        setShowChildComments(prevState => ({
-            ...prevState,
-            [commentId]: !prevState[commentId]
-        }));
-    };
-    function getShowChildCommentsState(commentId: number): boolean {
+    
 
-        return showChildComments[commentId] || false;
-    }
-
-    const renderComments = (comments: ICommentViewModel[]) => {
+    const renderComments = (comments: ICommentViewModel[], ) => {
         return (
             comments.map(p => (
-                <div key={p.id}>
-                    <CommentModel comment={p} />
-                    {p.children && p.children.length > 0 && (
-                        <div className='CommentMore'>
-                            <button className="btn btn-primary" onClick={() => toggleShowChildComments(p.id)}>{getShowChildCommentsState(p.id) ? "Hide replies" : "Show replies"}</button>
-                        </div>
-                    )}
-                    {showChildComments[p.id] && p.children && p.children.length > 0 && (
-                        renderComments(p.children)
-                    )}
+                <div key={p.id} className='commentBlock child'>
+                    <CommentModel comment={p} child={children} loadComments={loadComments} />                   
                 </div>
             ))
         );
@@ -51,9 +34,8 @@ const ShowCommentComponent = ({ Comments }: { Comments: ICommentViewModel[] | un
 
 
     const plusComments = () => {
-        setEndIndex(endIndex + 2);
-        if (endIndex >= 5)
-            setEndIndex(Comments.length);
+        setEndIndex(endIndex + 3);
+        
     }
 
 

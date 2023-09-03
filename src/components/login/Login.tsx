@@ -54,7 +54,7 @@ const Login = () => {
 
                                                                     http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
                                                                     formHttp.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
-                                                                    console.log("return");
+                                                                    console.log(localStorage.token);
                                                                     const user2 = jwtDecode(localStorage.token) as IUser;
                                                                     console.log(user2);
                                                                     dispatch({

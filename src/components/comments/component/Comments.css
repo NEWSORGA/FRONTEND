@@ -1,14 +1,7 @@
-.CommentWrapper {
-  background-color: rgba(21, 17, 16, 0.6);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-  width: 100%;
-  margin: 0;
-  border-radius: 0;
+/*==================Colors===============*/
+/*==================Sizes===============*/
+.CommentDetails {
   padding: 15px;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid rgb(59, 59, 59);
 }
 
 .CommentAnswer {
@@ -89,6 +82,17 @@
   object-fit: cover;
 }
 
+.CommentWrapper {
+  background-color: rgba(21, 17, 16, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
 .CommentWrapper .images {
   max-width: 400px;
   display: grid;
@@ -140,6 +144,64 @@
   font-size: 12px;
   color: #FFFFFF;
   font-weight: 200;
+}
+.CommentWrapper .replyBtn {
+  background-color: transparent;
+  border: 0;
+  color: rgb(158, 150, 150);
+  font-size: 11px;
+}
+.CommentWrapper .CommentMore {
+  margin: 0;
+  height: 14px;
+}
+.CommentWrapper .CommentMore .showReply {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  color: #EB4C42;
+  margin-bottom: 0 !important;
+}
+
+.createCommentModal {
+  overflow: hidden;
+}
+.createCommentModal .modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: transparent;
+  width: 1000px;
+}
+.createCommentModal .modal-dialog {
+  width: 800px !important;
+}
+.createCommentModal .btn-close {
+  --bs-btn-close-color: #bb1717 !important;
+  fill: red;
+}
+.createCommentModal .createCommentHeader {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff;
+}
+.createCommentModal .createCommentHeader .btn-close {
+  color: #fff !important;
+}
+.createCommentModal .createCommentBody {
+  background-color: rgba(29, 32, 37, 0.7) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff !important;
+  padding: 0;
+}
+
+.child {
+  background-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .details {

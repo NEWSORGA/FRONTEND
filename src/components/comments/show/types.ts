@@ -7,9 +7,15 @@ export interface ICommentViewModel  {
     medias:IMedia[],
     user: IUserViewComment,
     thoughtId: number,
+    commentParentId:number,
     createdAt: string;
     createdAtStr: string;
-    children:ICommentViewModel[]
+    children:ICommentViewModel[],
+    isComment: boolean,
+    isReply: boolean,
+    replyToId: number|null|undefined,
+    replyTo: ICommentViewModel,
+    
 };
 
 // Оголошення пропсів для компонента

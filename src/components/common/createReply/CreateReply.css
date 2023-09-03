@@ -1,0 +1,104 @@
+/*==================Colors===============*/
+/*==================Sizes===============*/
+.WritePost2 {
+  width: 100%;
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(0);
+          backdrop-filter: blur(0);
+  background-image: none;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  z-index: 5;
+  position: relative;
+}
+.WritePost2 form {
+  width: 100%;
+}
+.WritePost2 form .inputBlock {
+  display: flex;
+  flex: 90%;
+  flex-direction: column;
+}
+.WritePost2 form .inputBlock .inputPost {
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0;
+  outline: 0;
+  resize: none;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+}
+.WritePost2 form .inputBlock .images {
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  margin-top: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #31343B;
+  max-height: 400px;
+}
+.WritePost2 form .inputBlock .images .imgUp {
+  height: 100%;
+}
+.WritePost2 form .inputBlock .images .imgUp .img-fluid {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.WritePost2 form .inputBlock .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+}
+.WritePost2 form .inputBlock .buttons .actions {
+  display: flex;
+  flex-direction: row;
+}
+.WritePost2 form .inputBlock .buttons .actions .action {
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+}
+.WritePost2 form .inputBlock .buttons .actions .inputBtn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  transition: 0.3s;
+}
+.WritePost2 form .inputBlock .buttons .actions .inputBtn:hover {
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.WritePost2 form .inputBlock .buttons .actions .emojiPicker {
+  z-index: 5;
+  overflow: hidden;
+  position: absolute;
+  margin-top: 30px;
+}
+.WritePost2 form .inputBlock .buttons .actions .disable {
+  opacity: 85% !important;
+  cursor: none;
+}
+.WritePost2 form .inputBlock .buttons .btnProfile {
+  background-image: linear-gradient(45deg, rgb(248, 121, 114), #D74840);
+  flex: 1fr;
+  display: block;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 20px;
+  border: 0;
+  transition: 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.WritePost2 form .inputBlock .buttons .btnProfile:hover {
+  filter: drop-shadow(0px 0px 5px rgb(241, 18, 18));
+}/*# sourceMappingURL=CreateReply.css.map */
