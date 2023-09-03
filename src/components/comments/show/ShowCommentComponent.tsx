@@ -46,7 +46,7 @@ const ShowCommentComponent = ({ Comments, children, loadComments }: { Comments: 
                 {renderComments(Comments.slice(0, endIndex))}
                 {Comments.length > endIndex &&
                     (<>
-                        <div className='CommentMore'>
+                        <div className={children ? "CommentMore childMore" : "CommentMore"}>
                             <button className="btn btn-primary" onClick={() => plusComments()}>Show more</button>
                         </div>
                     </>)}

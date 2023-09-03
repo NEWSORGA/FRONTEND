@@ -1,0 +1,3 @@
+interface ISearchSetting{
+    filterText:string
+}

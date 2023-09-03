@@ -8,7 +8,15 @@
     border-bottom: 1px solid rgb(61, 60, 60);
     border-radius: 0;
 }
-
+.backBtn{
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border-color: $primary;
+    color: $primary;
+    padding: 3px 0;
+    font-weight: bold;
+}
 .ThoughtWrapper {
     background-image: $box-bg;
     backdrop-filter: $default-blur;

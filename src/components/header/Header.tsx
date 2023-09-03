@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { IAuthUser } from '../../store/types';
 import { APP_ENV } from '../../env';
+import SearchInput from '../common/search/SearchInput';
 
 const Header = () => {
     const { user, isAuth } = useSelector((store: any) => store.auth as IAuthUser);
@@ -22,9 +23,7 @@ const Header = () => {
                 <div className="icon-search-wrapper">
                     <i className="bi bi-bell"></i>
                     <div className="SearchHeader" style={{ width: "80%" }}>
-                        <div className="input-group rounded">
-                            <input type="search" className="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        </div>
+                        <SearchInput/>
                     </div>
                     <i className="bi bi-arrow-through-heart"></i>
                 </div>

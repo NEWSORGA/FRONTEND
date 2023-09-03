@@ -110,32 +110,82 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.CommentWrapper .DataUserThought {
+.CommentWrapper .CommentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.CommentWrapper .CommentHeader .DataUserThought {
   display: flex;
 }
-.CommentWrapper .DataUserThought img {
+.CommentWrapper .CommentHeader .DataUserThought img {
   width: 32px;
   height: 32px;
 }
-.CommentWrapper .DataUserThought .nickAndTime {
+.CommentWrapper .CommentHeader .DataUserThought .nickAndTime {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   margin-left: 5px;
 }
-.CommentWrapper .DataUserThought .nickAndTime .NickThought {
+.CommentWrapper .CommentHeader .DataUserThought .nickAndTime .NickThought {
   color: #FFFFFF;
   font-size: 12px;
   transition: 0.3s;
   font-weight: 500;
 }
-.CommentWrapper .DataUserThought .nickAndTime .NickThought:hover {
+.CommentWrapper .CommentHeader .DataUserThought .nickAndTime .NickThought:hover {
   color: #b6b6b6;
 }
-.CommentWrapper .DataUserThought .nickAndTime .time {
+.CommentWrapper .CommentHeader .DataUserThought .nickAndTime .time {
   color: #9E9696;
   font-size: 10px;
+}
+.CommentWrapper .CommentHeader .CommentMenu {
+  position: relative;
+}
+.CommentWrapper .CommentHeader .CommentMenu .menuBtn {
+  background-color: transparent;
+  border: 0;
+  transition: 0.8s;
+}
+.CommentWrapper .CommentHeader .CommentMenu .menuBtn:hover {
+  filter: drop-shadow(0px 0px 10px rgb(241, 18, 18));
+}
+.CommentWrapper .CommentHeader .CommentMenu .menuBtn:hover path {
+  transition: 0.3s;
+  fill: #DB4F47;
+}
+.CommentWrapper .CommentHeader .CommentMenu .dropdownMenu {
+  transition: 0.8s;
+  opacity: 0s;
+  border-radius: 10px;
+  background-color: rgba(29, 32, 37, 0.6) !important;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid #31343B;
+  z-index: 5;
+  color: red;
+  width: 200px;
+  position: absolute;
+  right: 0px;
+  overflow: hidden;
+}
+.CommentWrapper .CommentHeader .CommentMenu .dropdownMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.CommentWrapper .CommentHeader .CommentMenu .dropdownMenu ul li {
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.CommentWrapper .CommentHeader .CommentMenu .dropdownMenu ul li:hover {
+  background-color: rgba(47, 52, 59, 0.6) !important;
 }
 .CommentWrapper .CommentText {
   width: 100%;
@@ -151,11 +201,11 @@
   color: rgb(158, 150, 150);
   font-size: 11px;
 }
-.CommentWrapper .CommentMore {
+.CommentWrapper .CommentReplies {
   margin: 0;
   height: 14px;
 }
-.CommentWrapper .CommentMore .showReply {
+.CommentWrapper .CommentReplies .showReply {
   background-color: transparent;
   border: 0;
   padding: 0;
@@ -166,16 +216,17 @@
 }
 
 .createCommentModal {
-  overflow: hidden;
+  overflow: visible !important;
 }
 .createCommentModal .modal-content {
   border-radius: 15px;
-  overflow: hidden;
+  overflow: visible !important;
   background-color: transparent;
   width: 1000px;
 }
 .createCommentModal .modal-dialog {
   width: 800px !important;
+  overflow: visible !important;
 }
 .createCommentModal .btn-close {
   --bs-btn-close-color: #bb1717 !important;
@@ -196,6 +247,7 @@
           backdrop-filter: blur(10px);
   color: #fff !important;
   padding: 0;
+  overflow: visible !important;
 }
 
 .child {

@@ -9,6 +9,16 @@
   border-radius: 0;
 }
 
+.backBtn {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: transparent;
+  border-color: #EB4C42;
+  color: #EB4C42;
+  padding: 3px 0;
+  font-weight: bold;
+}
+
 .ThoughtWrapper {
   background-image: linear-gradient(45deg, rgba(16, 18, 21, 0.1), rgba(16, 18, 21, 0.5));
   -webkit-backdrop-filter: blur(5px);
