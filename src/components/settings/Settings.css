@@ -1,0 +1,86 @@
+/*==================Colors===============*/
+/*==================Sizes===============*/
+.ProfileWrapper {
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  background-size: contain;
+  background-repeat: repeat;
+}
+.ProfileWrapper .ProfileBackground {
+  z-index: 2;
+  min-height: 100vh;
+  width: 800px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(16, 18, 21, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.ProfileWrapper .ProfileBackground .ProfileAvatarBlock {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ProfileWrapper .ProfileBackground .ProfileAvatarBlock:hover .hoverImg {
+  opacity: 1;
+}
+.ProfileWrapper .ProfileBackground .ProfileAvatarBlock .hoverImg {
+  position: absolute;
+  transition: 0.3s;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock {
+  padding: 15px;
+  width: 100%;
+  border-bottom: 1px solid rgb(61, 60, 60);
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock .inputBlock {
+  padding: 5px 0;
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock .inputBlock .textInput {
+  border: 1px solid rgb(61, 60, 60);
+  border-radius: 5px;
+  padding: 8px;
+  background-color: rgba(16, 18, 21, 0.6);
+  color: #dededf;
+  width: 60%;
+  transition: border 0.3s;
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock .inputBlock .textInput:focus {
+  border: 1px solid #EB4C42;
+  box-shadow: none;
+  -webkit-tap-highlight-color: none;
+  outline: none;
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock .inputBlock .description {
+  max-height: 400px;
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock .inputBlock .ApllyBtn {
+  background-image: linear-gradient(45deg, rgb(248, 121, 114), #D74840);
+  flex: 1fr;
+  display: block;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  padding: 4px 20px;
+  border: 0;
+  transition: 0.3s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.ProfileWrapper .ProfileBackground .UserDataBlock .inputBlock .ApllyBtn:hover {
+  filter: drop-shadow(0px 0px 5px rgb(241, 18, 18));
+}/*# sourceMappingURL=Settings.css.map */

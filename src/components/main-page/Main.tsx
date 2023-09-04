@@ -28,7 +28,6 @@ const MainPage = () => {
                         <BlockMain _iconName="bi bi-balloon-fill"></BlockMain>
                     </Col>
                 </Row>
-                <Footer></Footer>
             </div>
 
         </>

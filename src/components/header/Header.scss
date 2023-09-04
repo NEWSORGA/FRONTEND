@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+@import '../../constants/variables';
+
+.HeaderWrapper {
+    z-index: 1000;
+    position: fixed; 
+    height: 60px;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5px; /* Add top position to create some space from the top */
+    background-color: rgba(16, 18, 21, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid #dddd;
+    border-radius: 15px;
+    box-shadow: rgba(216, 216, 216, 0.24) 0px 3px 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.avatar{
+  border-radius: 50%;
+  width: 38px;
+}
+.row {
+    height: 100%;
+}
+
+.col {
+    height: 100%;
+    padding: 0;
+}
+
+.icon-search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.AuthWrapper {
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.SearchHeader {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bi-bell:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.bi-bell {
+    margin-right: 10px;
+}
+
+i {
+    color: rgb(155, 34, 34);
+    font-size: 20px;
+}
+
+.SearchHeader .form-control {
+    background-color: #121315;
+    color: white;
+}
+
+.SearchHeader .form-control::placeholder {
+    color: white;
+}
+
+.BrandDiv {
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.brand {
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    -webkit-text-stroke: 0.4px white;
+    font-size: 24px;
+    color: rgb(155, 34, 34);
+}
+
+.bi-arrow-through-heart:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.bi-arrow-through-heart {
+    margin-left: 10px;
+    font-size: 22px;
+}
+
+.brand-subtext {
+    font-family: 'Lugrasimo', cursive;
+    font-size: 8px;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.brand:hover {
+    cursor: pointer;
+}
+
+.dropdownMenuHeader {
+    transition: 0.8s;
+    opacity: 0s;
+    border-radius: 10px;
+    background-color: rgba(29, 32, 37, 1) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid #31343B;
+    z-index: 5;
+    color: red;
+    width: 150px;
+    position: absolute;
+    right: 0px;
+    overflow: hidden;
+    top: 55px;
+    ul {
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        .logout{
+            background-color: $primary;
+        }
+        li {
+            padding: 10px;
+            color: #FFFFFF;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                background-color: rgba(47, 52, 59, 0.6) !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .BrandDiv{
+        display: none;
+    }
+    .HeaderWrapper{
+        width: 100%;
+        top: 0;
+        border-radius: 0;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+    .form-control{
+        border: 0 !important;
+    }
+  } 
