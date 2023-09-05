@@ -72,7 +72,7 @@ export const CreateComment = (props: any) => {
     };
 
     const createSchema = yup.object({
-
+        
     });
 
     const onSubmitFormikData = (values: ICommentCreate) => {
@@ -83,7 +83,7 @@ export const CreateComment = (props: any) => {
                     formik.resetForm();
                     setImages([]);
                     props.loadComments();
-          
+                    setDisableImages(false);
             });
         }
         else{

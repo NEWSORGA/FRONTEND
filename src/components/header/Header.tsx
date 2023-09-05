@@ -70,7 +70,7 @@ const Header = () => {
                     </div>
                     <div className='dropdownMenuHeader' ref={container} style={{ display: thoughtMenu ? "block" : "none", opacity: thoughtMenu ? "100%" : "0%" }}>
                         <ul>
-                            <li onClick={(e: any) => { navigate("/profile/" + user?.id);  }}>Profile</li>
+                            <li onClick={(e: any) => { navigate("/profile/" + user?.id); navigate(0); }}>Profile</li>
                             <li onClick={(e: any) => { navigate("/settings/");  }}>Settings</li>
                             <li className='logout' onClick={(e: any) => { logout(); }}>Logout</li>
                         </ul>

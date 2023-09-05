@@ -13,7 +13,8 @@ export interface IUser {
     name: string,
     image: string,
     email: string,
-    bg: string
+    bg: string,
+    roles: string
 }
 
 export interface ILoginResult {

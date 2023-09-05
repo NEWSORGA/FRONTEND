@@ -4,7 +4,7 @@
   z-index: 1;
   min-height: 100vh;
   width: 100%;
-  background-size: contain;
+  background-size: auto;
   background-repeat: repeat;
   background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(48, 9, 1) 100%);
 }
@@ -193,7 +193,7 @@
     margin: 0 15px;
   }
   .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .NickNameProfile a {
-    font-size: 18px;
+    font-size: 16px;
   }
   .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .CountryProfile a {
     font-size: 10px;
@@ -203,7 +203,7 @@
     height: 10px;
   }
   .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile .StatusProfile a {
-    font-size: 16px;
+    font-size: 14px;
   }
   .ProfileWrapper .ProfileBackground .contentStatistic {
     display: flex;
@@ -247,5 +247,10 @@
   }
   .ProfileWrapper .ProfileBackground .loadProfile {
     z-index: 10;
+  }
+  .follow {
+    font-size: 12px !important;
+    padding: 3px 3px !important;
+    width: 80px !important;
   }
 }/*# sourceMappingURL=Profile.css.map */

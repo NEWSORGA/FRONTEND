@@ -18,7 +18,8 @@ if (localStorage.token && localStorage.getItem("user")) {
       id: user.id,
       name: user.name,
       image: user.image,
-      bg: user.bg
+      bg: user.bg,
+      roles: user.roles
     } as IUser
   });
  

@@ -91,6 +91,7 @@ export const CreatePost = (props: any) => {
                     formik.resetForm();
                     setImages([]);
                     props.loadPosts();
+                    setDisableImages(false);
                 }
             });
 

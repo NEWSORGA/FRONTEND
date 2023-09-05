@@ -4,7 +4,7 @@
     z-index: 1;
     min-height: 100vh;
     width: 100%;
-    background-size: contain;
+    background-size:auto;
     background-repeat: repeat;
     background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgb(48, 9, 1) 100%);
 
@@ -230,7 +230,7 @@
 
                     .NickNameProfile {
                         a {
-                            font-size: 18px;
+                            font-size: 16px;
                         }
                     }
 
@@ -247,10 +247,11 @@
 
                     .StatusProfile {
                         a {
-                            font-size: 16px;
+                            font-size: 14px;
                         }
                     }
                 }
+                
 
             }
 
@@ -305,5 +306,10 @@
 
         }
 
+    }
+    .follow{
+        font-size: 12px !important;
+        padding: 3px 3px !important;
+        width: 80px !important;
     }
 }

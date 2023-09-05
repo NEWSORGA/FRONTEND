@@ -84,6 +84,7 @@ export const CreateReply = (props: any) => {
                 setImages2([]);
                 props.loadComments();
                 props.handleClose();
+                setDisableImages(false);
             });
 
 

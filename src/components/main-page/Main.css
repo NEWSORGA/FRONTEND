@@ -47,3 +47,6 @@
 .row {
   --bs-gutter-x: 0rem !important;
 }
+@media (max-width: 768px) {
+  
+}

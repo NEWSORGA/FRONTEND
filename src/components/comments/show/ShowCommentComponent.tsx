@@ -10,7 +10,7 @@ import { ICommentViewModel } from './types';
 const ShowCommentComponent = ({ Comments, children, loadComments }: { Comments: ICommentViewModel[] | undefined, children:boolean,loadComments:any }) => {
 
 
-    const [endIndex, setEndIndex] = useState(3);
+    const [endIndex, setEndIndex] = useState(5);
     
 
 
@@ -34,7 +34,7 @@ const ShowCommentComponent = ({ Comments, children, loadComments }: { Comments: 
 
 
     const plusComments = () => {
-        setEndIndex(endIndex + 3);
+        setEndIndex(endIndex + 5);
         
     }
 

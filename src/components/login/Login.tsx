@@ -20,7 +20,7 @@ const Login = () => {
                     <div className="body d-md-flex align-items-center justify-content-between">
                         <div className="box-1 mt-md-0 mt-5">
                             <img src="https://i.pinimg.com/564x/e8/fc/f1/e8fcf1d3816963575e037aa879866441.jpg"
-                                className="" alt="" />
+                                className="imgLogin" alt="" />
                         </div>
                         <div className=" box-2 d-flex flex-column h-100">
                             <div className="mt-5">
@@ -63,7 +63,8 @@ const Login = () => {
                                                                             id: user2.id,
                                                                             name: user2.name,
                                                                             image: user2.image,
-                                                                            bg: user2.bg
+                                                                            bg: user2.bg,
+                                                                            roles: user2.roles
                                                                         } as IUser
                                                                     });
                                                                     console.log("nav");
