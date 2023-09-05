@@ -6,4 +6,7 @@
  }
  .Footer{
    z-index: 1000;
+   background-color: rgba(29, 32, 37, 0.0) !important;
+   backdrop-filter: blur(10px);
+   color: #ffffff !important;
  }

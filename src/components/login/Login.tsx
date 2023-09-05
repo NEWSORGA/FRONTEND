@@ -11,7 +11,7 @@ import { formHttp, http } from '../../http';
 const Login = () => {
     const navigator = useNavigate();
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     return (
 
         <div className="page-container">
@@ -51,18 +51,18 @@ const Login = () => {
                                                                 formHttp.post<ILoginResult>("/auth/loginGoogle", user).then((reg) => {
 
                                                                     localStorage.token = reg.data.token;
-
+                                                                  
                                                                     http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
                                                                     formHttp.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
                                                                     console.log(localStorage.token);
                                                                     const user2 = jwtDecode(localStorage.token) as IUser;
+                                                                    localStorage.user = user2;
                                                                     console.log(user2);
                                                                     dispatch({
                                                                         type: AuthUserActionType.LOGIN_USER, payload: {
                                                                             id: user2.id,
                                                                             name: user2.name,
                                                                             image: user2.image,
-                                                                            email: user2.email,
                                                                             bg: user2.bg
                                                                         } as IUser
                                                                     });
@@ -93,7 +93,7 @@ const Login = () => {
                                 </div>
                             </div>
                         </div>
-                        <Link to="/" className="fas fa-times"></Link>
+                        <a  className="bi bi-x" onClick={() => navigate(-1)}></a>
                     </div>
                 </div>
             </div>

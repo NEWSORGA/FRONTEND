@@ -81,16 +81,7 @@ export default function SearchInput() {
                                 </li>
 
                             ))}
-                        {list.length > 3 &&
-                            <li className="dropdown_item">
-                                <div className="DataUserThought">
-                                    <div className='nickAndTime'>
-                                        <span className="NickThought">See all results</span>
-                                    </div>
-                                </div>
-
-                            </li>
-                        }
+                        
                         {loading &&
                             <li className='dropdown_item loading'>
                                 <MutatingDots

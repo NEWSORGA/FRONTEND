@@ -24,6 +24,7 @@ export const ThoughtDetails = (props: any) => {
         setLoadThought(true);
         loadThought();
         loadComments();
+   
         console.log(id);
     }, [])
 
@@ -66,7 +67,7 @@ export const ThoughtDetails = (props: any) => {
 
     return (
 
-        <div className="TDetailsWrapper d-flex justify-content-center" style={{ backgroundImage: user?.bg != null ? `url(${APP_ENV.BASE_URL + "/images/" + user?.bg})` : "url(https://www.everwallpaper.co.uk/cdn/shop/collections/3D_Wallpaper.jpg?v=1660209305)" }}>
+        <div className="TDetailsWrapper d-flex justify-content-center" style={{ backgroundImage: user?.bg != null ? `url(${APP_ENV.BASE_URL + "/images/" + thought?.user.backgroundImage})` : "linear-gradient(45deg, rgba(0,0,0,1) 0%, rgb(48, 9, 1) 100%)" }}>
 
             <div className="TDetailsBackground " style={{ alignItems: loadingThought ? "center" : "start", justifyContent: loadingThought ? "center" : "start", display: "flex", flexDirection: "column" }}>
                 {

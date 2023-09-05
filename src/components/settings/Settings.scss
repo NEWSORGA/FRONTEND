@@ -6,7 +6,7 @@
     width: 100%;
     background-size: contain;
     background-repeat: repeat;
-
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgb(48, 9, 1) 100%);
     .ProfileBackground {
         z-index: 2;
         min-height: 100vh;
@@ -19,20 +19,42 @@
         background-color: $bg;
         backdrop-filter: $default-blur;
 
+        .profileLine {
+            display: flex;
+            justify-content: space-between;
+        }
 
-
-        .ProfileAvatarBlock {
-            position: relative;
+        .ProfileImageBlock {
+            width: fit-content !important;
             overflow: hidden;
             border-radius: 10px;
+            flex: content !important;
+            height: 140px;
             cursor: pointer;
-            &:hover{
+            max-width: 500px;
+            margin: 0 10px;
+
+            &:hover {
                 .hoverImg {
                     opacity: 1;
                 }
             }
 
-            .hoverImg{
+            .labelImage{
+                position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            width: fit-content;
+            }
+            
+            .ProfileAvatar{
+                width: 140px;
+                height: 140px;
+                background-repeat: no-repeat;
+                    object-fit: cover;
+            }
+
+            .hoverImg {
                 position: absolute;
                 transition: 0.3s;
                 opacity: 0;
@@ -44,11 +66,13 @@
                 z-index: 2;
                 background-color: rgba(0, 0, 0, 0.8);
                 top: 0;
-               
+                left: 0;
             }
         }
 
-        
+        .ProfileBg {
+            height: 140px;
+        }
 
         .UserDataBlock {
             padding: 15px;

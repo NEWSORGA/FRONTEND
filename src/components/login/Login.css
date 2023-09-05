@@ -17,8 +17,9 @@
 }
 .card {
     text-align: center;
-    background-color: #252525 !important;
-    padding: 0;
+    background-color: rgba(29, 32, 37, 0.2) !important;
+   backdrop-filter: blur(10px);
+    padding: 10px;
     margin: 0 auto;
     display: block;
     position: relative;
@@ -116,20 +117,20 @@
 }
 
 
-.fas.fa-times {
+.bi-x {
     position: absolute;
     top: 20px;
     right: 20px;
     height: 20px;
     width: 20px;
-    background-color: #f3cff379;
-    font-size: 18px;
+    font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
 }
 
-.fas.fa-times:hover {
+.bi-x:hover {
     color: #ff0000;
 }
 

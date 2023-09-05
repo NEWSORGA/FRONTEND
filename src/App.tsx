@@ -11,7 +11,6 @@ import Settings from './components/settings/Settings';
 
 function App() {
   return (
-    <>
       <Routes>
 
         <Route path="/" element={<DefaultLayout></DefaultLayout>}>
@@ -25,7 +24,6 @@ function App() {
           <Route path='/login' element={<Login></Login>} />
         </Route>
       </Routes>
-    </>
   )
 }
 

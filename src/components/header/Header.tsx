@@ -17,12 +17,20 @@ const Header = () => {
     const [thoughtMenu, setThoughtMenu] = useState<boolean>(false);
     const btn = useRef<HTMLImageElement>(null);
     const dispatch = useDispatch();
-
+    const [bg, setBg] = useState();
     useEffect(() => {
+        http.get('auth/userAvatar/'+user?.id)
+        .then(async resp => {
+          setBg(resp.data)
+        })
+        .catch(bad => {
+          console.log("Bad request", bad);
+        })
+
         window.addEventListener("mousedown", handleClickOutside);
         return () => {
             window.removeEventListener("mousedown", handleClickOutside);
-        };
+        }; 
     });
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -50,19 +58,19 @@ const Header = () => {
                     <div className="brand-subtext">but every do you want</div>
                 </div>
                 <div className="icon-search-wrapper">
-                    <i className="bi bi-bell"></i>
+                   
                     <div className="SearchHeader" style={{ width: "80%" }}>
                         <SearchInput />
                     </div>
-                    <i className="bi bi-arrow-through-heart"></i>
+                    <i className="bi bi-person" onClick={() => {if(isAuth) {navigate("/profile/"+user?.id)} else{navigate("/login")}}}></i>
                 </div>
                 <div className="AuthWrapper">
                     <div className="AvatarDiv">
-                        {isAuth ? <img ref={btn} src={`${APP_ENV.BASE_URL + "/images/" + user?.image}`} className="avatar" alt="Avatar" onClick={(e: any) => { e.preventDefault(); thoughtMenu ? setThoughtMenu(false) : setThoughtMenu(true) }} /> : <Link to="/login">Login</Link>}
+                        {isAuth ? <img ref={btn} src={`${APP_ENV.BASE_URL + "/images/" + bg}`} className="avatar" alt="Avatar" onClick={(e: any) => { e.preventDefault(); thoughtMenu ? setThoughtMenu(false) : setThoughtMenu(true) }} /> : <Link to="/login">Login</Link>}
                     </div>
                     <div className='dropdownMenuHeader' ref={container} style={{ display: thoughtMenu ? "block" : "none", opacity: thoughtMenu ? "100%" : "0%" }}>
                         <ul>
-                            <li onClick={(e: any) => { navigate("/profile/" + user?.id); navigate(0) }}>Profile</li>
+                            <li onClick={(e: any) => { navigate("/profile/" + user?.id);  }}>Profile</li>
                             <li onClick={(e: any) => { navigate("/settings/");  }}>Settings</li>
                             <li className='logout' onClick={(e: any) => { logout(); }}>Logout</li>
                         </ul>

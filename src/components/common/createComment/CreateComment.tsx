@@ -9,6 +9,9 @@ import './createComment.css';
 import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import { ICommentCreate } from './types';
+import { useSelector } from 'react-redux';
+import { IAuthUser } from '../../../store/types';
+import { useNavigate } from 'react-router-dom';
 
 export const CreateComment = (props: any) => {
     const [gridColumns, setGridColumns] = useState<string>();
@@ -16,9 +19,11 @@ export const CreateComment = (props: any) => {
     const [images, setImages] = useState<IUploadImageResult[]>([]);
     const [disableImages, setDisableImages] = useState<boolean>(false);
     const [showEmoji, setShowEmoji] = useState<boolean>(false);
-
+    const { isAuth } = useSelector((store: any) => store.auth as IAuthUser);
     const container = useRef<HTMLDivElement>(null);
     const btn = useRef<HTMLButtonElement>(null);
+    const navigate = useNavigate();
+
     const handleClickOutside = (event: MouseEvent) => {
         console.log(container);
         if (container.current && !container.current.contains(event.target as Node) && btn.current && !btn.current.contains(event.target as Node)) {
@@ -71,10 +76,8 @@ export const CreateComment = (props: any) => {
     });
 
     const onSubmitFormikData = (values: ICommentCreate) => {
-        console.log("Values", values);
-       
-        console.log("Values", values);
-        formHttp.post('comments/createComment', values)
+        if(isAuth){
+            formHttp.post('comments/createComment', values)
             .then(resp => {
 
                     formik.resetForm();
@@ -82,6 +85,10 @@ export const CreateComment = (props: any) => {
                     props.loadComments();
           
             });
+        }
+        else{
+            navigate("/login");
+        }
 
 
 

@@ -6,6 +6,7 @@
   width: 100%;
   background-size: contain;
   background-repeat: repeat;
+  background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(48, 9, 1) 100%);
 }
 .ProfileWrapper .ProfileBackground {
   z-index: 2;
@@ -34,8 +35,10 @@
   width: 140px;
   height: 140px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   border-radius: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .ProfileWrapper .ProfileBackground .profileLine .UserDataProfile {
   margin: 0 20px;

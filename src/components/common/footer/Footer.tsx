@@ -22,7 +22,7 @@ const Footer = () => {
                             </div>
                             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
                                 <h6 className="text-uppercase fw-bold mb-4">Contacts</h6>
-                                <p><i className="bi bi-house"></i>Adress</p>
+                                <p><i className="bi bi-house"></i> Adress</p>
                                 <p> 
                                     Quixify@example.com
                                 </p>

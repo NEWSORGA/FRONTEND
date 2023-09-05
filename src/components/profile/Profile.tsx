@@ -3,7 +3,7 @@ import './Profile.css'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Thought from '../common/thought/Thought';
 import { useEffect, useState, } from 'react';
-import { useParams, } from 'react-router-dom';
+import { useNavigate, useParams, } from 'react-router-dom';
 import { ITweetView, IUserView } from './types';
 import { http } from '../../http';
 import { APP_ENV } from '../../env';
@@ -14,12 +14,13 @@ import { CreatePost } from '../common/createPost/CreatePost';
 const Profile = () => {
     const [userPage, setUser] = useState<IUserView>();
     const [posts, setPosts] = useState<ITweetView[]>([]);
-    
+    const [bg, setBg] = useState<string>();
     const { user, isAuth } = useSelector((store: any) => store.auth as IAuthUser);
     const [loadingProfile, setLoadProfile] = useState<boolean>();
     const [loadingPosts, setLoadPosts] = useState<boolean>();
     const [followed, setFollowed] = useState<boolean>();
     const { id } = useParams();
+    const navigate = useNavigate();
     useEffect(() => {
         loadProfile();
         loadPosts();
@@ -68,25 +69,30 @@ const Profile = () => {
     // }
 
     const follow = () => {
-        if (followed == false) {
-            setFollowed(true);
-            console.log("followed", followed);
-        }
-        else {
-            setFollowed(false);
-            console.log("unfollowed", followed);
-        }
-
-        http.post("/Follow/" + userPage?.id).then((res) => {
-            if (res.data == "Followed") {
+        if(isAuth){
+            if (followed == false) {
                 setFollowed(true);
+                console.log("followed", followed);
             }
-            else if (res.data == "unFollowed") {
+            else {
                 setFollowed(false);
+                console.log("unfollowed", followed);
             }
-
-
-        });
+    
+            http.post("/Follow/" + userPage?.id).then((res) => {
+                if (res.data == "Followed") {
+                    setFollowed(true);
+                }
+                else if (res.data == "unFollowed") {
+                    setFollowed(false);
+                }
+    
+    
+            });
+        }
+        else{
+            navigate("/login");
+        }
     }
 
 
@@ -94,7 +100,7 @@ const Profile = () => {
 
         <>
             <div className="ProfileWrapper d-flex justify-content-center"
-                style={{ backgroundImage: userPage?.backgroundImage != null ? `url(${APP_ENV.BASE_URL + "/images/" + userPage?.backgroundImage})` : "url(https://www.everwallpaper.co.uk/cdn/shop/collections/3D_Wallpaper.jpg?v=1660209305)" }}>
+                style={{ backgroundImage: userPage?.backgroundImage != null ? `url(${APP_ENV.BASE_URL + "/images/" + userPage?.backgroundImage})` : "linear-gradient(45deg, rgba(0,0,0,1) 0%, rgb(48, 9, 1) 100%)" }}>
                 <div className="ProfileBackground " style={{ alignItems: loadingProfile ? "center" : "start", justifyContent: loadingProfile ? "center" : "start" }}>
                     {loadingProfile ? <MutatingDots
                         height="100"

@@ -24,6 +24,9 @@
 .avatar {
   border-radius: 50%;
   width: 38px;
+  height: 38px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .row {
@@ -99,12 +102,12 @@ i {
   color: rgb(155, 34, 34);
 }
 
-.bi-arrow-through-heart:hover {
+.bi-person:hover {
   cursor: pointer;
   color: white;
 }
 
-.bi-arrow-through-heart {
+.bi-person {
   margin-left: 10px;
   font-size: 22px;
 }

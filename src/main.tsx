@@ -8,7 +8,7 @@ import { formHttp, http } from './http.ts';
 import jwtDecode from "jwt-decode";
 import { AuthUserActionType, IUser } from './store/types.ts';
 
-if (localStorage.token) {
+if (localStorage.token && localStorage.getItem("user")) {
   http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
   formHttp.defaults.headers.common['Authorization'] = `Bearer ${localStorage.token}`;
 
@@ -21,6 +21,7 @@ if (localStorage.token) {
       bg: user.bg
     } as IUser
   });
+ 
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

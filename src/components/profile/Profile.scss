@@ -6,6 +6,7 @@
     width: 100%;
     background-size: contain;
     background-repeat: repeat;
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgb(48, 9, 1) 100%);
 
     .ProfileBackground {
         z-index: 2;
@@ -32,8 +33,9 @@
                     width: 140px;
                     height: 140px;
                     background-repeat: no-repeat;
-                    background-size: cover;
+                    background-size:auto;
                     border-radius: $border-radius;
+                    object-fit: cover;
 
                 }
             }
